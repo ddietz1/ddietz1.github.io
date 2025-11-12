@@ -29,7 +29,7 @@ twitter_username: jekyllrb
 github_username:  ddietz1
 
 # Build settings
-theme: hacker
+theme: minima
 plugins:
   - jekyll-feed
 
