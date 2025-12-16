@@ -1,5 +1,0 @@
-assets/images/projects/**/*.gif filter=lfs diff=lfs merge=lfs -text
-assets/images/projects/peloton/HMI.gif filter=lfs diff=lfs merge=lfs -text
-assets/images/projects/MultiAgentResearch.gif filter=lfs diff=lfs merge=lfs -text
-assets/images/projects/first/Swerve.gif filter=lfs diff=lfs merge=lfs -text
-assets/images/projects/PelotonRobotVideo.gif filter=lfs diff=lfs merge=lfs -text
