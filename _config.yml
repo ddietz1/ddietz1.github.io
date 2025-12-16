@@ -2,14 +2,14 @@
 # SITE SETTINGS
 # ============================================
 
-title: Andnet DeBoer
-description: Robotics researcher focused on mobile manipulation, motion planning, and simulation
-author: Andnet DeBoer
-email: andnet@example.com  # Replace with your actual email
+title: Derek Dietz
+description: Current MS Robotics student at Northwestern University. My area of interests are in path planning, simulation, and mobile manipulation.
+author: Derek Dietz
+email: derekdietz25@gmail.com
 
 # URL Settings
-url: "https://ddietz1.github.io"  # Your GitHub Pages URL
-baseurl: ""  # Leave empty for user/org pages, or "/repo-name" for project pages
+url: "https://ddietz1.github.io"
+baseurl: ""
 
 # ============================================
 # BUILD SETTINGS
