@@ -96,10 +96,10 @@ feed:
 
 # Social profiles (for SEO tags)
 social:
-  name: Andnet DeBoer
+  name: Derek Dietz
   links:
-    - https://www.linkedin.com/in/andnetdeboer/
-    - https://github.com/andnet-deboer
+    - https://www.linkedin.com/in/derek-dietz-robotics/
+    - https://github.com/ddietz1
 
 # Twitter (optional)
 # twitter:
@@ -114,7 +114,7 @@ og_image: /assets/images/og-image.png  # Create this 1200x630px image
 # ============================================
 
 # Timezone
-timezone: America/New_York  # Adjust to your timezone
+timezone: Chicago/CST  # Adjust to your timezone
 
 # Encoding
 encoding: utf-8
@@ -145,9 +145,9 @@ navigation:
 
 # Contact information
 contact:
-  email: deboerandnet@gmail.com  
-  linkedin: https://www.linkedin.com/in/andnetdeboer/ 
-  github: https://github.com/andnet-deboer  #
+  email: derekdietz25@gmail.com  
+  linkedin: https://www.linkedin.com/in/derek-dietz-robotics/ 
+  github: https://github.com/ddietz1  #
 # About text (can be used in templates)
 about:
   short: "Robotics researcher focused on mobile manipulation, motion planning, and simulation"
