@@ -3,7 +3,7 @@ layout: project
 title: "2D physics simulator for a jack in a box"
 
 carousel_images:
-  - /assets/images/Jackinthebox.mp4
+  - /assets/images/JackintheBox.png
 carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/Jackinthebox.mp4"
