@@ -1,0 +1,32 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Critical CSS - Remove all underlines immediately -->
+  <style>
+    * { text-decoration: none !important; }
+    a, a:hover, a:focus, a:active, a:visited { 
+      text-decoration: none !important;
+      text-decoration-line: none !important;
+      border-bottom: none !important;
+    }
+    nav a, .nav-link, .site-nav a {
+      text-decoration: none !important;
+      text-decoration-line: none !important;
+      border-bottom: none !important;
+    }
+  </style>
+  
+  <!-- Hash scroll handler - loads early to catch navigation -->
+  <script src="{{ '/assets/js/hash-scroll.js' | relative_url }}"></script>
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+</head>
