@@ -6,7 +6,7 @@ carousel_images:
   - /assets/images/JackintheBox.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/Jackinthebox.mp4"
+preview_gif: "/assets/images/Jackinthebox.gif"
 code: "https://github.com/ddietz1/2D-Physics-Sim"
 # data: "https://example.com/dataset"
 tags: ["Sympy", "Python"]
