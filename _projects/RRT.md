@@ -3,10 +3,10 @@ layout: project
 title: "Rapidly Exploring Random Tree"
 
 carousel_images:
-  - /assets/images/RRT.png
+  - /assets/images/RRT1.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/RRT.png"
+preview_gif: "/assets/images/RRT.gif"
 code: "https://github.com/ddietz1/RRT"
 # data: "https://example.com/dataset"
 tags: ["Python"]
