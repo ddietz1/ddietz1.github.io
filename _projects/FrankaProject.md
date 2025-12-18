@@ -8,7 +8,7 @@ carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/TrainRailing.gif"
 code: "https://github.com/ME495-EmbeddedSystems/final-project-north-western-northwestern"
-# data: "https://example.com/dataset"
+
 tags: ["ROS 2", "Python", "Franka Robot", "OpenCV"]
 date: 2025-11-15
 description: "A system for identifying and placing multiple model train cars onto a model track using a FR3 Franka Robot arm."
