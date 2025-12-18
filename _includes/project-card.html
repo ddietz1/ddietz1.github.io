@@ -1,22 +1,42 @@
 <div class="project-card">
   <a href="{{ project.url }}" class="card-link">
+
     <div class="card-content">
+      <!-- Project title -->
       <h3 class="card-title">{{ project.title }}</h3>
-              <div class="project-overview">
-                   {{ content }}
-            </div>
-            <div class="card-tags">
-              {% for tag in project.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+
+      <!-- Short project description (from front matter) -->
+      {% if project.description %}
+        <div class="project-overview">
+          {{ project.description }}
+        </div>
+      {% endif %}
+
+      <!-- Tags -->
+      {% if project.tags %}
+        <div class="card-tags">
+          {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
 
+    <!-- Preview image / GIF -->
     <div class="card-image-container">
-      <img src="{{ project.preview_gif }}" alt="{{ project.title }}" class="card-gif">
+      {% if project.preview_gif %}
+        <img
+          src="{{ project.preview_gif | relative_url }}"
+          alt="{{ project.title }}"
+          class="card-gif"
+          loading="lazy"
+        >
+      {% endif %}
+
       <div class="card-overlay">
         <span class="view-project-text">View Project</span>
       </div>
     </div>
+
   </a>
 </div>
