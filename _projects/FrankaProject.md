@@ -19,10 +19,10 @@ description: "A system for identifying and placing multiple model train cars ont
 This system utilizes a custom Python ROS2 API for the motion planning, robot state, and planning scene aspects of controlling the Franka robot arm. A custom package called franka_express uses OpenCV and YOLO for detection of the train cars, track, and track control switch. The package also contains a service call that runs the entire loop to create the planning scene, detect all relevant objects, pick and place each train car, and operate the control switch to run the train cars alongside a locomotive. The Franka arm was outfitted with custom grippers for use in fine maipulation of the train bogies, which require accuracy to within 1 millimeter in order to be properly placed onto the track. My primary contribution was to the motion planning of the arm with ROS2, using OpenCV and YOLO bounding boxes to determine the positions of the objects and the appropriate motions to pick, place, and align the train cars and their bogies with the track.
 
 ## Subsystems
-## MoveIt API
+### MoveIt API
 The first part of the project to be completed was the development of the Python MoveIt API. Using the existing ROS2 Moveit library, the team developed user friendly functions that allowed the user to easily plan a path to a specific pose or move in a Cartesian path between poses. Our team also implimented functionality for loading a planning scene from a yaml file, dynamically adding/removing collision objects to the planning scene, and tracking the robot state.
 
-## Vision
+### Vision
 To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. An Intel RealSense D435 Camera was mounted to the end effector of the Franka arm and used for all vision tasks. Camera calibration was done with an Aruco marker to determine the distance/orientation of the camera relative to the table. The YOLO model outputs a Pytorch Tensor containing all data related to the bounding boxes of the various elements in its immediate field of view. Our system extracts the corners of the bounding box and calculates the center pixel and orientation of the object. The system subscribes to two seperate vision topics to get the RGB and depth pixels of each object and uses the data from a seperate camera info topic to convert the pixel data to distances in meters in the planning scene.
 
 ## System Flow
