@@ -11,7 +11,7 @@ code: "https://github.com/ddietz1/RRT"
 # data: "https://example.com/dataset"
 tags: ["Python"]
 date: 2025-09-12
-description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
+description: "A Rapidly-Exploring Random Tree simulation in Python"
 ---
 
 ## Overview
