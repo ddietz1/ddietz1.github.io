@@ -3,15 +3,15 @@ layout: project
 title: "Rapidly Exploring Random Tree"
 
 carousel_images:
-  - /assets/images/RRT.png
+  - /assets/images/RRT1.png
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/RRT.png"
+preview_gif: "/assets/images/RRT.gif"
 code: "https://github.com/ddietz1/RRT"
 # data: "https://example.com/dataset"
 tags: ["Python"]
 date: 2025-09-12
-description: "A versatile, distributed platform using ROS for testing and validating a wide variety of multi-agent control algorithms."
+description: "A Rapidly-Exploring Random Tree simulation in Python"
 ---
 
 ## Overview
