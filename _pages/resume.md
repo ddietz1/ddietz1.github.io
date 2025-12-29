@@ -52,7 +52,7 @@ permalink: /resume/
 
 <div class="resume-container">
   <embed 
-    src="{{ '/assets/resume/resume.pdf' | relative_url }}" 
+    src="{{ '/assets/resume/Resume.pdf' | relative_url }}" 
     type="application/pdf" 
     class="pdf-embed"
     title="Resume"
