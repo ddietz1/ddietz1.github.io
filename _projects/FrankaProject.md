@@ -31,9 +31,13 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 ### MoveIt API
 The first part of the project to be completed was the development of the Python MoveIt API. Using the existing ROS2 Moveit library, the team developed user friendly functions that allowed the user to easily plan a path to a specific pose or move in a Cartesian path between poses. Our team also implimented functionality for loading a planning scene from a yaml file, dynamically adding/removing collision objects to the planning scene, and tracking the robot state.
 
-### Custom Grippers
+### Hardware
+#### Custom Grippers
 To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers. IMAGE HERE
-
+#### Intel RealSense D450
+The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2. IMAGE HERE
+#### Model Train Cars
+The locomotive was a Piko DB class 191. Our test cars for railing were a Lionel NYC caboose and a 40ft reefer of unknown make. Our track was steel Bachmann E-Z track. The controller was a Kato analog controller.
 ### Vision
 Our team designed the vision system to identify the trains, track, and any other aspects of the planning scene using a single Intel RealSense mounted to the end effector. 
 To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. To gather the necessary training data, we took videos using the Franka-mounted RealSense. 
