@@ -588,6 +588,23 @@ a:visited {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.project-figure {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.project-figure img {
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.project-figure figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+}
+
 /* Carousel Styles */
 .project-carousel {
   margin: 2rem 0;
