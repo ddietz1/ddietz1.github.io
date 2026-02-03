@@ -21,12 +21,11 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 
 ## Subsystems
 
-<figure class="project-figure">
-  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="550">
-  <figcaption>
-    Setup with all relevant components labeled.
-  </figcaption>
-</figure>
+<div style="text-align:center;">
+  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="550"><br>
+  <em>Custom 3D-printed PLA grippers mounted to the Franka arm.</em>
+</div>
+
 
 
 ### MoveIt API
