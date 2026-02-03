@@ -35,14 +35,17 @@ The first part of the project to be completed was the development of the Python 
 #### Custom Grippers
 To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers. IMAGE HERE
 #### Intel RealSense D450
-The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2. IMAGE HERE
+The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2.
 #### Model Train Cars
 The locomotive was a Piko DB class 191. Our test cars for railing were a Lionel NYC caboose and a 40ft reefer of unknown make. Our track was steel Bachmann E-Z track. The controller was a Kato analog controller.
 ### Vision
 Our team designed the vision system to identify the trains, track, and any other aspects of the planning scene using a single Intel RealSense mounted to the end effector. 
 To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. To gather the necessary training data, we took videos using the Franka-mounted RealSense. 
 
-![Training Data for our Yolo Model](/assets/images/TrainingImages.webp). 
+<div style="text-align:center;">
+  <img src="/assets/images/TrainingImages.webp" width="550"><br>
+  <em>Training Data for our ML model.</em>
+</div>
 
 We then used Grounding Dino and Meta’s SAM 2 to produce approximate bounding boxes from text descriptions of each car. Camera calibration was done with an Aruco marker to determine the distance/orientation of the camera relative to the table. The YOLO model outputs a Pytorch Tensor containing all data related to the minimum bounding boxes of the various elements in its immediate field of view. Our system extracts the corners of the bounding box and calculates the center pixel and orientation of the object. The system subscribes to two seperate vision topics to get the RGB and depth pixels of each object and uses the data from a seperate camera info topic to convert the pixel data to distances in meters in the planning scene.
 
