@@ -22,9 +22,12 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 ## Subsystems
 
 <figure class="project-figure">
-  <img src="/assets/images/Project-Setup-Annotated-2.webp" alt="Project setup">
-  <figcaption>Project setup and workspace configuration.</figcaption>
+  <img class="project-figure-img" src="/assets/images/Project-Setup-Annotated-2.webp" alt="Project setup">
+  <figcaption class="project-figure-caption">
+    Project setup and workspace configuration.
+  </figcaption>
 </figure>
+
 
 
 
