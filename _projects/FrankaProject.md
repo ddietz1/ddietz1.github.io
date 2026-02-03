@@ -21,7 +21,9 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 
 ## Subsystems
 
-![Project Setup](/assets/images/Project-Setup-Annotated-2.webp)
+<p align="center">
+  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="550">
+</p>
 
 ### MoveIt API
 The first part of the project to be completed was the development of the Python MoveIt API. Using the existing ROS2 Moveit library, the team developed user friendly functions that allowed the user to easily plan a path to a specific pose or move in a Cartesian path between poses. Our team also implimented functionality for loading a planning scene from a yaml file, dynamically adding/removing collision objects to the planning scene, and tracking the robot state.
