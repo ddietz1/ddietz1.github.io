@@ -572,11 +572,12 @@ a:visited {
 }
 
 .project-figure img {
-  display: block;
-  margin: 0 auto;
+  width: auto !important;
   max-width: 600px;
-  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
 }
+
 
 .project-figure figcaption {
   font-size: 0.9rem;
