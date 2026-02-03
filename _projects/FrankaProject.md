@@ -21,10 +21,11 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 
 ## Subsystems
 
-<div style="text-align:center;">
-  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="550"><br>
-  <em>Custom 3D-printed PLA grippers mounted to the Franka arm.</em>
-</div>
+<figure class="project-figure">
+  <img src="/assets/images/Project-Setup-Annotated-2.webp" alt="Project setup">
+  <figcaption>Project setup and workspace configuration.</figcaption>
+</figure>
+
 
 
 
@@ -42,10 +43,11 @@ The locomotive was a Piko DB class 191. Our test cars for railing were a Lionel 
 Our team designed the vision system to identify the trains, track, and any other aspects of the planning scene using a single Intel RealSense mounted to the end effector. 
 To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. To gather the necessary training data, we took videos using the Franka-mounted RealSense. 
 
-<div style="text-align:center;">
-  <img src="/assets/images/TrainingImages.webp" width="550"><br>
-  <em>Training Data for our ML model.</em>
-</div>
+<figure class="project-figure">
+  <img src="/assets/images/TrainingImages.webp" alt="Training data">
+  <figcaption>Training data used for the YOLO model.</figcaption>
+</figure>
+
 
 We then used Grounding Dino and Meta’s SAM 2 to produce approximate bounding boxes from text descriptions of each car. Camera calibration was done with an Aruco marker to determine the distance/orientation of the camera relative to the table. The YOLO model outputs a Pytorch Tensor containing all data related to the minimum bounding boxes of the various elements in its immediate field of view. Our system extracts the corners of the bounding box and calculates the center pixel and orientation of the object. The system subscribes to two seperate vision topics to get the RGB and depth pixels of each object and uses the data from a seperate camera info topic to convert the pixel data to distances in meters in the planning scene.
 
