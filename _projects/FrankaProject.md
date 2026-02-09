@@ -23,7 +23,7 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 
 <div style="text-align:center;">
   <img src="/assets/images/Project-Setup-Annotated-2.webp" width="600"><br>
-  <em>Custom 3D-printed PLA grippers mounted to the Franka arm.</em>
+  <em>Planning scene setup.</em>
 </div>
 
 ### MoveIt API
@@ -43,7 +43,7 @@ To identify the various elements of the scene, a YOLO model was trained on secti
 
 <div style="text-align:center;">
   <img src="/assets/images/TrainingImages.webp" width="600"><br>
-  <em>Custom 3D-printed PLA grippers mounted to the Franka arm.</em>
+  <em>Training images used for the YOLO model.</em>
 </div>
 
 We then used Grounding Dino and Meta’s SAM 2 to produce approximate bounding boxes from text descriptions of each car. Camera calibration was done with an Aruco marker to determine the distance/orientation of the camera relative to the table. The YOLO model outputs a Pytorch Tensor containing all data related to the minimum bounding boxes of the various elements in its immediate field of view. Our system extracts the corners of the bounding box and calculates the center pixel and orientation of the object. The system subscribes to two seperate vision topics to get the RGB and depth pixels of each object and uses the data from a seperate camera info topic to convert the pixel data to distances in meters in the planning scene.
@@ -56,7 +56,6 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
     <source src="/assets/images/TrainSuccess.mp4" type="video/mp4">
   </video>
 </div>
-
 
 ## Personal contributions
 My personal contributions are as follows:
