@@ -16,4 +16,22 @@ description: "A 2D physics simulator displaying Lagrangian impact dynamics for a
 
 ## Overview
 
-This physics simulation displays a four armed jack inside of a four sided box falling under the influence of gravity. The physics of the impacts between the box and jack are calculated using Euler-Lagrange equations. The simulation uses the Sympy and Numpy Python packages.
+This project demonstrates a 2D rigid-body physics simulator of a jack-in-the-box system using first-principles mechanics and symbolic computation. The dynamics are derived from the Euler–Lagrange formulation, with all kinematics expressed through SE(3) frame transformations and spatial inertia matrices.
+
+The system models both the box and a four-armed jack as coupled rigid bodies subject to gravity, external forcing, and contact constraints. Impacts between the jack arms and box walls are handled using constraint-based collision detection and momentum/energy-conserving impact equations. Symbolic expressions are generated with SymPy and converted to efficient numerical functions for real-time simulation using Runge–Kutta integration.
+
+## Key Features
+
+* Symbolic multibody dynamics using Euler–Lagrange equations
+
+* SE(3) transformation-based kinematics across 13 reference frames
+
+* Spatial inertia and energy-based modeling
+
+* 16 contact constraints for collision detection
+
+* Momentum/energy-preserving impact updates
+
+* RK4 numerical integration for stable real-time animation
+
+* Implemented in Python with SymPy and NumPy
