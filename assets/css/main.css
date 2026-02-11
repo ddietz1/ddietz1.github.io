@@ -566,6 +566,28 @@ a:visited {
   letter-spacing: -0.02em;
 }
 
+.project-figure {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.project-figure img {
+  width: auto !important;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.project-figure figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+
+
 /* Images take full width of container */
 .project-content img {
   max-width: 100%;
