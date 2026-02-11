@@ -53,7 +53,7 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
 
 <div style="text-align:center;">
   <video width="600" autoplay loop muted playsinline controls>
-    <source src="/assets/images/TrainSuccess.mp4" type="video/mp4">
+    <source src="/assets/images/TrainSuccess_small.mp4" type="video/mp4">
   </video>
 </div>
 

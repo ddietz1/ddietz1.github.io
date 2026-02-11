@@ -35,3 +35,8 @@ The system models both the box and a four-armed jack as coupled rigid bodies sub
 * RK4 numerical integration for stable real-time animation
 
 * Implemented in Python with SymPy and NumPy
+
+<video controls width="800">
+  <source src="/assets/images/2DSimVideo.mp4" type="video/mp4">
+</video>
+
