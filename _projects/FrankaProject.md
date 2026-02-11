@@ -31,7 +31,7 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
 ## Final Demonstration
 
 <video controls width="800">
-  <source src="/assets/videos/TrainSuccess_small.mp4" type="video/mp4">
+  <source src="/assets/images/TrainSuccess_small.mp4" type="video/mp4">
 </video>
 
 ## Personal contributions
