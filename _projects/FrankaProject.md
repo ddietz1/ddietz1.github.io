@@ -30,6 +30,10 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
 
 ## Final Demonstration
 
+<video controls width="800">
+  <source src="/assets/videos/TrainSuccess_small.mp4" type="video/mp4">
+</video>
+
 ## Personal contributions
 My personal contributions are as follows:
 - Development and testing of the planning scene package in the MoveIt API.
