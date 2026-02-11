@@ -51,11 +51,17 @@ We then used Grounding Dino and Meta’s SAM 2 to produce approximate bounding b
 ## System Flow
 Once the custom service is called, the Franka arm returns to its home pose. It then runs a custom scan function to identify all objects in the RealSense's field of vision. This function creates a dictionary of each detected object, runs until each object has 50 poses, then averages the results to ensure an accurate position, depth, and orientation relative to the camera. The robot proceeds to a position such that the locomotive is the only object in frame and runs this scan function again to achieve even more precise measurements of its position. This is done again for the track section on which the train cars will be placed. This core loop of move, scan, and average is performed again on the train cars in the staging area. The robot arm then selects each car in order and moves them to align with the track position. Once the car has been placed on the track, the grippers move to the front bogies to pinch and lift them slgihtly above the track. This is done again for the back bogies on each car. The reason for this is to align the bogies with the track position so the car will glide freely on the rails, this is necessary as the bogies will freely rotate while the train is being lifted by the robot and, if improperly aligned, the train will not be able to move along the track.
 
-<div style="text-align:center;">
-  <video width="600" autoplay loop muted playsinline controls>
-    <source src="/assets/images/TrainSuccess_fixed.mp4" type="video/mp4">
-  </video>
-</div>
+{% include video.liquid
+  path="assets/images/TrainSuccess_fixed.mp4"
+  title="Robot demonstration"
+  class="img-fluid rounded z-depth-1"
+  controls=true
+  autoplay=true
+  loop=true
+  muted=true
+  playsinline=true
+  width="100%"
+%}
 
 ## Personal contributions
 My personal contributions are as follows:
