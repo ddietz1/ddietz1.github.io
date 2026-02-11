@@ -1,0 +1,37 @@
+{% assign extension = include.path | split: '.' | last | downcase %}
+{% assign src = include.path | relative_url %}
+
+<figure>
+  {% if extension == 'mp4' or extension == 'webm' or extension == 'ogg' %}
+    <video
+      {% if include.class %}class="{{ include.class }}"{% endif %}
+      {% if include.width %}width="{{ include.width }}"{% else %}width="100%"{% endif %}
+      {% if include.height %}height="{{ include.height }}"{% endif %}
+      {% if include.title %}title="{{ include.title }}"{% endif %}
+      {% if include.autoplay %}autoplay{% endif %}
+      {% if include.controls %}controls{% endif %}
+      {% if include.loop %}loop{% endif %}
+      {% if include.muted %}muted{% endif %}
+      {% if include.playsinline %}playsinline{% endif %}
+      {% if include.poster %}poster="{{ include.poster | relative_url }}"{% endif %}
+    >
+      <source src="{{ src }}" type="video/{{ extension }}">
+      Your browser does not support the video tag.
+    </video>
+  {% else %}
+    <iframe
+      src="{{ include.path }}"
+      {% if include.class %}class="{{ include.class }}"{% endif %}
+      {% if include.width %}width="{{ include.width }}"{% else %}width="100%"{% endif %}
+      {% if include.height %}height="{{ include.height }}"{% else %}height="400"{% endif %}
+      {% if include.title %}title="{{ include.title }}"{% endif %}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  {% endif %}
+
+  {% if include.caption %}
+    <figcaption class="caption">{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>
