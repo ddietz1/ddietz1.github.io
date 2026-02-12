@@ -22,7 +22,7 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 ## Subsystems
 
 <div style="text-align:center;">
-  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="600"><br>
+  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="400"><br>
   <em>Planning scene setup.</em>
 </div>
 
@@ -32,7 +32,7 @@ Add a short gif here of the Rviz simulation working to show off planning scene.
 
 ### Hardware
 #### Custom Grippers
-To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers. IMAGE HERE
+To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers.
 #### Intel RealSense D450
 The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2.
 #### Model Train Cars
@@ -42,7 +42,7 @@ Our team designed the vision system to identify the trains, track, and any other
 To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. To gather the necessary training data, we took videos using the Franka-mounted RealSense. 
 
 <div style="text-align:center;">
-  <img src="/assets/images/TrainingImages.webp" width="600"><br>
+  <img src="/assets/images/TrainingImages.webp" width="400"><br>
   <em>Training images used for the YOLO model.</em>
 </div>
 
@@ -55,12 +55,12 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
   path="assets/images/TrainSuccess_fixed.mp4"
   title="Robot demonstration"
   class="img-fluid rounded z-depth-1"
-  controls=true
-  autoplay=true
-  loop=true
-  muted=true
-  playsinline=true
-  width="100%"
+  controls="true"
+  autoplay="true"
+  loop="true"
+  muted="true"
+  playsinline="true"
+  width="40%"
 %}
 
 ## Personal contributions
