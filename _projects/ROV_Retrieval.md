@@ -22,7 +22,7 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
 
 <div style="text-align:center;">
   <img src="/assets/images/BlueROV2Image.png" width="400"><br>
-  <em>BlueROV2.</em>
+  <em>BlueROV2</em>
 </div>
 
 ### MAVROS Bridge
