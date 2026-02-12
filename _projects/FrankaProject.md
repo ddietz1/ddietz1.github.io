@@ -32,7 +32,7 @@ Add a short gif here of the Rviz simulation working to show off planning scene.
 
 ### Hardware
 #### Custom Grippers
-To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers. IMAGE HERE
+To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers.
 #### Intel RealSense D450
 The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2.
 #### Model Train Cars
@@ -60,7 +60,7 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
   loop="true"
   muted="true"
   playsinline="true"
-  width="100%"
+  width="70%"
 %}
 
 ## Personal contributions
