@@ -7,7 +7,7 @@ carousel_images:
 carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/450 Final Preview.gif"
-code: "https://github.com/ME495-EmbeddedSystems/final-project-north-western-northwestern"
+code: "https://github.com/ddietz1/franka-express"
 
 tags: ["ROS 2", "Python", "Franka Robot", "OpenCV"]
 date: 2025-11-15
