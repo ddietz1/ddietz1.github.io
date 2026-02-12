@@ -60,7 +60,7 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
   loop="true"
   muted="true"
   playsinline="true"
-  width="70%"
+  width="40%"
 %}
 
 ## Personal contributions
