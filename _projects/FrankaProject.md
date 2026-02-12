@@ -22,7 +22,7 @@ This system utilizes a custom Python ROS2 API for the motion planning, robot sta
 ## Subsystems
 
 <div style="text-align:center;">
-  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="600"><br>
+  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="400"><br>
   <em>Planning scene setup.</em>
 </div>
 
@@ -42,7 +42,7 @@ Our team designed the vision system to identify the trains, track, and any other
 To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. To gather the necessary training data, we took videos using the Franka-mounted RealSense. 
 
 <div style="text-align:center;">
-  <img src="/assets/images/TrainingImages.webp" width="600"><br>
+  <img src="/assets/images/TrainingImages.webp" width="400"><br>
   <em>Training images used for the YOLO model.</em>
 </div>
 
