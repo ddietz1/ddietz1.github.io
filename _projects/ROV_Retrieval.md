@@ -31,25 +31,25 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 ### Hardware
 
 #### BlueROV2
-The locomotive was a Piko DB class 191. Our test cars for railing were a Lionel NYC caboose and a 40ft reefer of unknown make. Our track was steel Bachmann E-Z track. The controller was a Kato analog controller.
+Designed and manufactured by BlueRobotics, the BlueROV2 
 #### Newton Gripper
 To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers.
 #### USB Low Light Camera
 The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2.
 
 ### Vision
-Our team designed the vision system to identify the trains, track, and any other aspects of the planning scene using a single Intel RealSense mounted to the end effector. 
-To identify the various elements of the scene, a YOLO model was trained on sections of Bachmann track, two model trains, the model locomotive, and the control switch box. To gather the necessary training data, we took videos using the Franka-mounted RealSense. 
+I designed the vision stack as a two node ROS2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and published them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
+
+Once the compressed images are recieved by the object_detection node, they are decoded to BGR and segmented using HSV color thresholds. The node finds contours, selecting the largest, and computes the following: Normalized image-center errors for x and y, a normalized size metric used for determining distance given the lack of depth sensing from the camera, a circularity score based on the hull to ensure rejection of spurious shapes, a detected flag that is set to true if the same shape is detected for more than N frames. These metrics are published on a custom Object msg type to the control node.
 
 <div style="text-align:center;">
   <img src="/assets/images/TrainingImages.webp" width="400"><br>
   <em>Training images used for the YOLO model.</em>
 </div>
 
-We then used Grounding Dino and Meta’s SAM 2 to produce approximate bounding boxes from text descriptions of each car. Camera calibration was done with an Aruco marker to determine the distance/orientation of the camera relative to the table. The YOLO model outputs a Pytorch Tensor containing all data related to the minimum bounding boxes of the various elements in its immediate field of view. Our system extracts the corners of the bounding box and calculates the center pixel and orientation of the object. The system subscribes to two seperate vision topics to get the RGB and depth pixels of each object and uses the data from a seperate camera info topic to convert the pixel data to distances in meters in the planning scene.
-
 ## System Flow
-Once the custom service is called, the Franka arm returns to its home pose. It then runs a custom scan function to identify all objects in the RealSense's field of vision. This function creates a dictionary of each detected object, runs until each object has 50 poses, then averages the results to ensure an accurate position, depth, and orientation relative to the camera. The robot proceeds to a position such that the locomotive is the only object in frame and runs this scan function again to achieve even more precise measurements of its position. This is done again for the track section on which the train cars will be placed. This core loop of move, scan, and average is performed again on the train cars in the staging area. The robot arm then selects each car in order and moves them to align with the track position. Once the car has been placed on the track, the grippers move to the front bogies to pinch and lift them slgihtly above the track. This is done again for the back bogies on each car. The reason for this is to align the bogies with the track position so the car will glide freely on the rails, this is necessary as the bogies will freely rotate while the train is being lifted by the robot and, if improperly aligned, the train will not be able to move along the track.
+
+Once the launch file is running, the system stays in an IDLE state preventing cmd_vel messages from being published. To run the ROV, the ROV must be armed and manually set to SEARCHING mode using a custom service type in the bridge node. Once the system is searching, the ROV uses MagneticField messages from the onboard magnetometer to maintain its heading and executes a "lawnmover" style search with its onboard camera tilted at -40 degrees. Once an appropriate object is detected, the system moves to the RING_DETECTED state and publishes velocity messages to the bridge node to keep the object in the center of the frame and moving forward. Once the object is close enough, the control node adds a slight x offset to compensate for the offset between the gripper and the center of the ROV. When the object is within the error thresholds of the camera position and the size is large enough, the close gripper service is called to grab the object. The ROV then moves backward slightly while checking if the object is still detected. If it is not, it reenters searching mode and attempts the grab again. If the object is still detected, the system enters HOMING mode and slowly returns to the surface.
 
 {% include video.liquid
   path="assets/images/TrainSuccess_fixed.mp4"
