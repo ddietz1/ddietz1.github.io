@@ -14,6 +14,7 @@ date: 2025-11-15
 description: "A system for identifying, navigating to, and retriving object underwater using the BlueROV2 platform."
 ---
 
+### --- This project is currently in progress ---
 ## Overview
 
 I am in the process of building a full ROS2 autonomy stack using Python to be used on the BlueROV2 by Blue Robotics. The overall core goal is autonomous searching, identification, navigation, and retrival of a diving ring from the bottom of the Northwestern pool. The system consists of two packages thus far for controlling the ROV. The system uses a custom ROS2 python API to convert ROS topic messages to Mavlink messages via Mavros bridge as well as nodes for retriving images from the onboard USB camera, a node for building robust object detection in OpenCV, and the controller node. This project is still in progress and is expected to be completed by March 13th, 2026.
