@@ -37,7 +37,7 @@ The system models both the box and a four-armed jack as coupled rigid bodies sub
 * Implemented in Python with SymPy and NumPy
 
 {% include video.liquid
-  path="assets/images/2DSimVideo.mp4"
+  path="assets/images/2DSimVideo_web.mp4"
   title="2D Simulation"
   class="img-fluid rounded z-depth-1"
   controls="true"
