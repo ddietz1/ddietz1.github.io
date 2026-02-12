@@ -38,7 +38,7 @@ The system models both the box and a four-armed jack as coupled rigid bodies sub
 
 {% include video.liquid
   path="/assets/images/2DSimVideo.mp4"
-  title="Robot demonstration"
+  title="2D Simulation"
   class="img-fluid rounded z-depth-1"
   controls="true"
   autoplay="true"
