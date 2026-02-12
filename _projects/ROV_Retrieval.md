@@ -45,18 +45,7 @@ Once the compressed images are recieved by the object_detection node, they are d
 ## System Flow
 
 Once the launch file is running, the system stays in an IDLE state preventing cmd_vel messages from being published. To run the ROV, the ROV must be armed and manually set to SEARCHING mode using a custom service type in the bridge node. Once the system is searching, the ROV uses MagneticField messages from the onboard magnetometer to maintain its heading and executes a "lawnmover" style search with its onboard camera tilted at -40 degrees. Once an appropriate object is detected, the system moves to the RING_DETECTED state and publishes velocity messages to the bridge node to keep the object in the center of the frame and moving forward. Once the object is close enough, the control node adds a slight x offset to compensate for the offset between the gripper and the center of the ROV. When the object is within the error thresholds of the camera position and the size is large enough, the close gripper service is called to grab the object. The ROV then moves backward slightly while checking if the object is still detected. If it is not, it reenters searching mode and attempts the grab again. If the object is still detected, the system enters HOMING mode and slowly returns to the surface.
-<!-- 
-{% include video.liquid
-  path="assets/images/TrainSuccess_fixed.mp4"
-  title="Robot demonstration"
-  class="img-fluid rounded z-depth-1"
-  controls="true"
-  autoplay="true"
-  loop="true"
-  muted="true"
-  playsinline="true"
-  width="40%"
-%} -->
+
 
 ## Background
 This project was planned and undertaken as an independent winter project as part of the Northwestern MSR program.
