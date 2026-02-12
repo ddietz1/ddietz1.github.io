@@ -21,7 +21,7 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
 ## Subsystems
 
 <div style="text-align:center;">
-  <img src="/assets/images/Project-Setup-Annotated-2.webp" width="400"><br>
+  <img src="/assets/images/BlueROV2Image.png" width="400"><br>
   <em>BlueROV2.</em>
 </div>
 
@@ -42,15 +42,10 @@ I designed the vision stack as a two node ROS2 pipeline that turns the BlueROV2'
 
 Once the compressed images are recieved by the object_detection node, they are decoded to BGR and segmented using HSV color thresholds. The node finds contours, selecting the largest, and computes the following: Normalized image-center errors for x and y, a normalized size metric used for determining distance given the lack of depth sensing from the camera, a circularity score based on the hull to ensure rejection of spurious shapes, a detected flag that is set to true if the same shape is detected for more than N frames. These metrics are published on a custom Object msg type to the control node.
 
-<div style="text-align:center;">
-  <img src="/assets/images/TrainingImages.webp" width="400"><br>
-  <em>Training images used for the YOLO model.</em>
-</div>
-
 ## System Flow
 
 Once the launch file is running, the system stays in an IDLE state preventing cmd_vel messages from being published. To run the ROV, the ROV must be armed and manually set to SEARCHING mode using a custom service type in the bridge node. Once the system is searching, the ROV uses MagneticField messages from the onboard magnetometer to maintain its heading and executes a "lawnmover" style search with its onboard camera tilted at -40 degrees. Once an appropriate object is detected, the system moves to the RING_DETECTED state and publishes velocity messages to the bridge node to keep the object in the center of the frame and moving forward. Once the object is close enough, the control node adds a slight x offset to compensate for the offset between the gripper and the center of the ROV. When the object is within the error thresholds of the camera position and the size is large enough, the close gripper service is called to grab the object. The ROV then moves backward slightly while checking if the object is still detected. If it is not, it reenters searching mode and attempts the grab again. If the object is still detected, the system enters HOMING mode and slowly returns to the surface.
-
+<!-- 
 {% include video.liquid
   path="assets/images/TrainSuccess_fixed.mp4"
   title="Robot demonstration"
@@ -61,7 +56,7 @@ Once the launch file is running, the system stays in an IDLE state preventing cm
   muted="true"
   playsinline="true"
   width="40%"
-%}
+%} -->
 
 ## Background
 This project was planned and undertaken as an independent winter project as part of the Northwestern MSR program.
