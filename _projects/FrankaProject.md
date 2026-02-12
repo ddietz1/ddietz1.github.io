@@ -55,11 +55,11 @@ Once the custom service is called, the Franka arm returns to its home pose. It t
   path="assets/images/TrainSuccess_fixed.mp4"
   title="Robot demonstration"
   class="img-fluid rounded z-depth-1"
-  controls=true
-  autoplay=true
-  loop=true
-  muted=true
-  playsinline=true
+  controls="true"
+  autoplay="true"
+  loop="true"
+  muted="true"
+  playsinline="true"
   width="100%"
 %}
 
