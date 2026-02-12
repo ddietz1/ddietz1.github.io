@@ -3,10 +3,10 @@ layout: project
 title: "Extended Kalman Filter SLAM from scratch"
 
 carousel_images:
-  - /assets/images/FrankaArmProject.gif
+  - /assets/images/slam_preview_small.gif
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/450 Final Preview.gif"
+preview_gif: "/assets/images/slam_preview_small.gif"
 code: "https://github.com/ME495-Navigation/slam-ddietz1"
 
 tags: ["ROS 2", "C++", "SLAM", "Turtlebot3"]

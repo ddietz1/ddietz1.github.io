@@ -3,10 +3,10 @@ layout: project
 title: "Autonomous Underwater Object Retrieval"
 
 carousel_images:
-  - /assets/images/FrankaArmProject.gif
+  - /assets/images/RingGrab.gif
 carousel_height: 400px
 carousel_width: auto
-preview_gif: "/assets/images/450 Final Preview.gif"
+preview_gif: "/assets/images/RingGrab.gif"
 code: "https://github.com/ME495-EmbeddedSystems/final-project-north-western-northwestern"
 
 tags: ["ROS 2", "Python", "BlueROV2", "OpenCV", "YOLO", "MAVROS"]
