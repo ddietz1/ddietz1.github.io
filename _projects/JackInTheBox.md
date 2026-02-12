@@ -36,20 +36,15 @@ The system models both the box and a four-armed jack as coupled rigid bodies sub
 
 * Implemented in Python with SymPy and NumPy
 
-
-<div style="text-align:center;">
-  {% include video.liquid
-    path="/assets/images/2DSimVideo.mp4"
-    title="Robot demonstration"
-    class="img-fluid rounded z-depth-1"
-    controls="true"
-    autoplay="true"
-    loop="true"
-    muted="true"
-    playsinline="true"
-    width="600"
-  %}
-  <em>Successful train placement demonstration.</em>
-</div>
-</video>
+{% include video.liquid
+  path="/assets/images/2DSimVideo.mp4"
+  title="Robot demonstration"
+  class="img-fluid rounded z-depth-1"
+  controls="true"
+  autoplay="true"
+  loop="true"
+  muted="true"
+  playsinline="true"
+  width="70%"
+%}
 
