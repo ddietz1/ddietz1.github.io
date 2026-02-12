@@ -14,6 +14,8 @@ date: 2025-2-12
 description: "EKF SLAM from scratch"
 ---
 
+### --- This project is currently in progress ---
+
 ## Overview
 
 I implimented an Extended Kalman filter (EKF) Simulataneous Localization and Mapping (SLAM) algorithm from scratch using several ROS2 packages and a custom C++ library. The algorithm is tested in the Rviz simulation environment and run on the Turtlebot3 robot. The turtlebot3 is equipped with a LIDAR scanner that provdes range and bearing measurements for obstacles in the environment. The EKF SLAM algorithm estimates the robot’s position and the position of the landmarks in the environment using these sensor measurements. The estimated robot position is compared to the ground truth position to evaluate the performance of the algorithm.
