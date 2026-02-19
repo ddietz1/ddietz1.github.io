@@ -7,7 +7,7 @@ carousel_images:
 carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/RingGrab.gif"
-code: "https://github.com/https://github.com/ddietz1/Retriever_Bot"
+code: "https://github.com/ddietz1/Retriever_Bot"
 
 tags: ["ROS 2", "Python", "BlueROV2", "OpenCV", "YOLO", "MAVROS"]
 date: 2025-11-15
