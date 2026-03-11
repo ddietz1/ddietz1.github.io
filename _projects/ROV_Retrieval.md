@@ -37,16 +37,18 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 ### Hardware
 
 #### BlueROV2
-Designed and manufactured by BlueRobotics, the BlueROV2 
+
 #### Newton Gripper
-To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers.
+
 #### USB Low Light Camera
-The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2.
+
 
 ### Vision
 I designed the vision stack as a two node ROS2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and published them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
 
 Once the compressed images are recieved by the object_detection node, they are decoded to BGR and segmented using HSV color thresholds. The node finds contours, selecting the largest, and computes the following: Normalized image-center errors for x and y, a normalized size metric used for determining distance given the lack of depth sensing from the camera, a circularity score based on the hull to ensure rejection of spurious shapes, a detected flag that is set to true if the same shape is detected for more than N frames. These metrics are published on a custom Object msg type to the control node.
+
+# YOLO
 
 ## System Flow
 
