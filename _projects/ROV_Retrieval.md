@@ -26,6 +26,13 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
   <em>BlueROV2</em>
 </div>
 
+<h2 class="mt-2 mb-3">System Architecture</h2>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/images/Block_Diagram.drawio.svg" title="System Architecture" class="img-fluid rounded z-depth-0" %}
+    </div>
+</div>
+
 ### MAVROS Bridge
 The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be directly communicated with using standard ROS2 topics. To allow for effective communication and control I implimented a node for converting Twist messages to MAVLINK messages. The bridge node publishes /mavros/command/send messages. When not being given velocity commands via teleop or the controller, the ROV is commanded to maintain a neutral position. The bridge node also controls other aspects of the ROV, such as the lights, Newton Undersea gripper, and USB camera pitch by publishing mavors/rc/override messages. The timer callbacks are implimented such that adding services for additional functionality is quite simple if you know the servo number that maps to that specific function.  
 
