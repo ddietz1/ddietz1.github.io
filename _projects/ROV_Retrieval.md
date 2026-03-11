@@ -11,7 +11,7 @@ code: "https://github.com/ddietz1/Retriever_Bot"
 
 tags: ["ROS 2", "Python", "BlueROV2", "OpenCV", "YOLO", "MAVROS"]
 date: 2025-11-15
-description: "A system for identifying, navigating to, and retriving object underwater using the BlueROV2 platform."
+description: "Autonomous navigation, sensing, and retrieval of underwater objects using the BlueROV2 platform."
 ---
 
 ### --- This project is currently in progress ---
@@ -21,16 +21,12 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
 
 ## Subsystems
 
-<div style="text-align:center;">
-  <img src="/assets/images/BlueROV2Image.png" width="400"><br>
-  <em>BlueROV2</em>
-</div>
-
 <h2 class="mt-2 mb-3">System Architecture</h2>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/images/Block_Diagram.drawio.svg" title="System Architecture" class="img-fluid rounded z-depth-0" %}
     </div>
+</div>
 
 ### MAVROS Bridge
 The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be directly communicated with using standard ROS2 topics. To allow for effective communication and control I implimented a node for converting Twist messages to MAVLINK messages. The bridge node publishes /mavros/command/send messages. When not being given velocity commands via teleop or the controller, the ROV is commanded to maintain a neutral position. The bridge node also controls other aspects of the ROV, such as the lights, Newton Undersea gripper, and USB camera pitch by publishing mavors/rc/override messages. The timer callbacks are implimented such that adding services for additional functionality is quite simple if you know the servo number that maps to that specific function.  
@@ -38,18 +34,24 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 ### Hardware
 
 #### BlueROV2
+<div style="text-align:center;">
+  <img src="/assets/images/BlueROV2Image.png" width="400"><br>
+  <em>BlueROV2</em>
+</div>
 
 #### Newton Gripper
 
 #### USB Low Light Camera
 
 
-### Vision
-I designed the vision stack as a two node ROS2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and published them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
+### Computer Vision
+The vision stack operates as a two node ROS 2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and publishes them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
 
+# OpenCV
 Once the compressed images are recieved by the object_detection node, they are decoded to BGR and segmented using HSV color thresholds. The node finds contours, selecting the largest, and computes the following: Normalized image-center errors for x and y, a normalized size metric used for determining distance given the lack of depth sensing from the camera, a circularity score based on the hull to ensure rejection of spurious shapes, a detected flag that is set to true if the same shape is detected for more than N frames. These metrics are published on a custom Object msg type to the control node.
 
 # YOLO
+Compressed images are recieved by the yolo_detection node, converted to a numpy array, and decoded into an OpenCV image. The image is run through a custom YOLO model and publishes a bounding box message to the control node.
 
 ## System Flow
 
