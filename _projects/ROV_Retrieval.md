@@ -27,7 +27,7 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
 </div>
 
 <div class="diagram">
-  <img src="assets/images/Winter Project Block Diagram.drawio.svg" alt="System Architecture Diagram">
+  <img src="assets/images/Winter%20Project%20Block%20Diagram.drawio.svg" alt="System Architecture Diagram">
 </div>
 
 ### MAVROS Bridge
