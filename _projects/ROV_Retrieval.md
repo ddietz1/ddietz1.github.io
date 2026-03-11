@@ -26,8 +26,11 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
   <em>BlueROV2</em>
 </div>
 
-{% include figure.liquid loading="eager" path="assets/images/Block_Diagram.drawio.svg" 
-   title="System Architecture" class="img-fluid rounded z-depth-0" width="100%" %}
+<h2 class="mt-2 mb-3">System Architecture</h2>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/images/Block_Diagram.drawio.svg" title="System Architecture" class="img-fluid rounded z-depth-0" %}
+    </div>
 <div style="text-align:center;">
   <img width="1251" height="721" alt="Block_Diagram drawio" src="https://github.com/user-attachments/assets/d3a46bf4-575d-4646-9ce2-fc9a1673fc50" />
   <em>System Architecture</em>
