@@ -26,11 +26,6 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
   <em>BlueROV2</em>
 </div>
 
-<!-- <div class="diagram">
-  <object data="assets/images/Winter%20Project%20Block%20Diagram.drawio.svg" type="image/svg+xml">
-    <img src="assets/images/Winter%20Project%20Block%20Diagram.drawio.svg" alt="System Architecture Diagram">
-  </object>
-</div> -->
 <img width="1251" height="721" alt="Block_Diagram drawio" src="https://github.com/user-attachments/assets/d3a46bf4-575d-4646-9ce2-fc9a1673fc50" />
 
 
