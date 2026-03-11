@@ -7,7 +7,7 @@ carousel_images:
 carousel_height: 400px
 carousel_width: auto
 preview_gif: "/assets/images/RingGrab.gif"
-code: "https://github.com/https://github.com/ddietz1/Retriever_Bot"
+code: "https://github.com/ddietz1/Retriever_Bot"
 
 tags: ["ROS 2", "Python", "BlueROV2", "OpenCV", "YOLO", "MAVROS"]
 date: 2025-11-15
@@ -31,6 +31,9 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/images/Block_Diagram.drawio.svg" title="System Architecture" class="img-fluid rounded z-depth-0" %}
     </div>
+<div style="text-align:center;">
+  <img width="1251" height="721" alt="Block_Diagram drawio" src="https://github.com/user-attachments/assets/d3a46bf4-575d-4646-9ce2-fc9a1673fc50" />
+  <em>System Architecture</em>
 </div>
 
 ### MAVROS Bridge
@@ -39,21 +42,19 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 ### Hardware
 
 #### BlueROV2
-Designed and manufactured by BlueRobotics, the BlueROV2 
+
 #### Newton Gripper
-To effectively grip the bogies of the train for proper track alignment, our team created a set of custom grippers that could be mounted to the stock Franka end effector. The grippers were designed in Onshape and 3d printed in PLA. A thin foam layer was added as a final adjustment to allow firm grip without deforming the grippers.
+
 #### USB Low Light Camera
-The RealSense was selected for its ability to provide reasonably accurate depth information and its native compatibility with ROS2.
+
 
 ### Vision
 I designed the vision stack as a two node ROS2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and published them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
 
 Once the compressed images are recieved by the object_detection node, they are decoded to BGR and segmented using HSV color thresholds. The node finds contours, selecting the largest, and computes the following: Normalized image-center errors for x and y, a normalized size metric used for determining distance given the lack of depth sensing from the camera, a circularity score based on the hull to ensure rejection of spurious shapes, a detected flag that is set to true if the same shape is detected for more than N frames. These metrics are published on a custom Object msg type to the control node.
 
+# YOLO
+
 ## System Flow
 
 Once the launch file is running, the system stays in an IDLE state preventing cmd_vel messages from being published. To run the ROV, the ROV must be armed and manually set to SEARCHING mode using a custom service type in the bridge node. Once the system is searching, the ROV uses MagneticField messages from the onboard magnetometer to maintain its heading and executes a "lawnmover" style search with its onboard camera tilted at -40 degrees. Once an appropriate object is detected, the system moves to the RING_DETECTED state and publishes velocity messages to the bridge node to keep the object in the center of the frame and moving forward. Once the object is close enough, the control node adds a slight x offset to compensate for the offset between the gripper and the center of the ROV. When the object is within the error thresholds of the camera position and the size is large enough, the close gripper service is called to grab the object. The ROV then moves backward slightly while checking if the object is still detected. If it is not, it reenters searching mode and attempts the grab again. If the object is still detected, the system enters HOMING mode and slowly returns to the surface.
-
-
-## Background
-This project was planned and undertaken as an independent winter project as part of the Northwestern MSR program.
