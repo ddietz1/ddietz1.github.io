@@ -17,7 +17,7 @@ description: "Autonomous navigation, sensing, and retrieval of underwater object
 ### --- This project is currently in progress ---
 ## Overview
 
-I am in the process of building a full ROS2 autonomy stack using Python to be used on the BlueROV2 by Blue Robotics. The overall core goal is autonomous searching, identification, navigation, and retrival of a diving ring from the bottom of the Northwestern pool. The system consists of two packages thus far for controlling the ROV. The system uses a custom ROS2 python API to convert ROS topic messages to Mavlink messages via Mavros bridge as well as nodes for retriving images from the onboard USB camera, a node for building robust object detection in OpenCV, and the controller node. This project is still in progress and is expected to be completed by March 13th, 2026.
+A ROS 2 autonomy stack for the BlueROV2 platform enabling autonomous detection, navigation, and grasping of underwater objects using Python. The package contains a custom ROS -> MAVLink bridge enabling full 6-dof control of the ROV via ROS 2 Kilted. Object detection is achieved through OpenCV or YOLO depending on the object being captured and utilizes PID control for thruster commands and failure recovery logic.
 
 <h2 class="mt-2 mb-3">System Architecture</h2>
 <div class="row">
@@ -31,7 +31,7 @@ I am in the process of building a full ROS2 autonomy stack using Python to be us
 * bluerov_heading: Package for heading stabilization during the SEARCHING phase, integrates with the control node from bluerov_control
 
 ### MAVROS Bridge
-The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be directly communicated with using standard ROS2 topics. To allow for effective communication and control I implimented a node for converting Twist messages to MAVLINK messages. The bridge node publishes /mavros/command/send messages. When not being given velocity commands via teleop or the controller, the ROV is commanded to maintain a neutral position. The bridge node also controls other aspects of the ROV, such as the lights, Newton Undersea gripper, and USB camera pitch by publishing mavors/rc/override messages. The timer callbacks are implimented such that adding services for additional functionality is quite simple if you know the servo number that maps to that specific function.  
+The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be directly communicated with using standard ROS2 topics. To allow for effective communication and control I implimented a node for converting Twist messages to MAVLINK messages. The bridge node publishes /mavros/command/send messages at a set frequency. When not being given velocity commands via teleop or the controller, the ROV is commanded to maintain a neutral position. The bridge node also controls other aspects of the ROV, such as the lights, Newton Undersea gripper, and USB camera pitch by publishing mavors/rc/override messages. The timer callbacks are implimented such that adding services for additional functionality is quite simple if you know the servo number that maps to that specific function.  
 
 ### Hardware
 
@@ -42,9 +42,10 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 </div>
 
 #### Newton Gripper
+<img width="1333" height="778" alt="BlueRobotics Newton Gripper" src="https://github.com/user-attachments/assets/16145cf1-8aad-4def-84ef-bc0d19d86ba3" />
 
 #### USB Low Light Camera
-
+<img width="1024" height="305" alt="BlueRobotics Low Light USB Camera and Tilt System" src="https://github.com/user-attachments/assets/5a15c98d-5902-4012-aefa-5d2e5b4ac454" />
 
 ### Computer Vision
 The vision stack operates as a two node ROS 2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and publishes them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
