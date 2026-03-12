@@ -43,13 +43,13 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 
 #### Newton Gripper
 <div style="text-align:center;">
-  <img src="/assets/images/NEWTON-GRIPPER-SPECS.png" width="400"><br>
+  <img src="/assets/images/NEWTON-GRIPPER-SPECS.png" width="200"><br>
   <em>BlueRobotics Newton Gripper</em>
 </div>
 
 #### USB Low Light Camera
 <div style="text-align:center;">
-  <img src="/assets/images/BLUEROV_Camera.png" width="400"><br>
+  <img src="/assets/images/BLUEROV_Camera.png" width="200"><br>
   <em>BlueRobotics LowLight USB Camera and Tilt System</em>
 </div>
 
