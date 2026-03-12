@@ -42,10 +42,16 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 </div>
 
 #### Newton Gripper
-<img width="1333" height="778" alt="BlueRobotics Newton Gripper" src="https://github.com/user-attachments/assets/16145cf1-8aad-4def-84ef-bc0d19d86ba3" />
+<div style="text-align:center;">
+  <img src="/assets/images/NEWTON-GRIPPER-SPECS.png" width="400"><br>
+  <em>BlueRobotics Newton Gripper</em>
+</div>
 
 #### USB Low Light Camera
-<img width="3310" height="3310" alt="BlueRobotics Low Light USB Camera and Tilt System" src="https://github.com/user-attachments/assets/5fa31166-f387-4f10-8864-4a9ab84750e6" />
+<div style="text-align:center;">
+  <img src="/assets/images/BLUEROV_Camera.png" width="400"><br>
+  <em>BlueRobotics LowLight USB Camera and Tilt System</em>
+</div>
 
 ### Computer Vision
 The vision stack operates as a two node ROS 2 pipeline that turns the BlueROV2's UDP MJPEG stream into stable targets for easy use by the control node. The GStreamer pipeline recieved the ROV's video on a UDP port, converts frames to OpenCV BGR, re-encodes them as JPEG, and publishes them as a CompressedImage. Compressing the images is crucial to maintain a solid frame rate.
