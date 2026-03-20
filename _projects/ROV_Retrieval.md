@@ -1,11 +1,8 @@
 ---
+---
 layout: project
 title: "Autonomous Underwater Object Retrieval"
 
-carousel_images:
-  - /assets/images/RingGrab.gif
-carousel_height: 400px
-carousel_width: auto
 preview_gif: "/assets/images/RingGrab.gif"
 code: "https://github.com/ddietz1/Retriever_Bot"
 
