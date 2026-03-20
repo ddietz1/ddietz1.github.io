@@ -10,10 +10,6 @@ description: "Autonomous navigation, sensing, and retrieval of underwater object
 
 ## Autonomous Underwater Object Retrieval
 
-<a href="https://github.com/ddietz1/Retriever_Bot" target="_blank">
-  <img src="https://img.shields.io/badge/GitHub-View%20Code-black?logo=github" alt="GitHub Repo">
-</a>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 1rem;">
   <iframe 
     src="https://www.youtube.com/embed/lCeOjcmc-DI"
