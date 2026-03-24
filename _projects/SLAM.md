@@ -6,11 +6,21 @@ preview_gif: "/assets/images/slam_preview_small.gif"
 code: "https://github.com/ME495-Navigation/slam-ddietz1"
 
 tags: ["ROS 2", "C++", "SLAM", "Turtlebot3"]
-date: 2025-2-12
+date: 2026-1-12
 description: "EKF SLAM from scratch"
 ---
 
-https://github.com/user-attachments/assets/5e8841dc-4f48-43ad-aa60-d5a007f27146
+{% include video.liquid
+  path="assets/images/SLAM_UNKNOWN_DATA_SIMULATION.mp4"
+  title="EKF SLAM demonstration"
+  class="img-fluid rounded z-depth-1"
+  controls="true"
+  autoplay="true"
+  loop="true"
+  muted="true"
+  playsinline="true"
+  width="40%"
+%}
 
 ## Overview
 
