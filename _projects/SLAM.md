@@ -14,11 +14,11 @@ date: 2025-2-12
 description: "EKF SLAM from scratch"
 ---
 
-### --- This project is currently in progress ---
+https://github.com/user-attachments/assets/1d6d12a1-4064-46ed-a451-870565ec692e
 
 ## Overview
 
-I implimented an Extended Kalman filter (EKF) Simulataneous Localization and Mapping (SLAM) algorithm from scratch using several ROS2 packages and a custom C++ library. The algorithm is tested in the Rviz simulation environment and run on the Turtlebot3 robot. The turtlebot3 is equipped with a LIDAR scanner that provdes range and bearing measurements for obstacles in the environment. The EKF SLAM algorithm estimates the robot’s position and the position of the landmarks in the environment using these sensor measurements. The estimated robot position is compared to the ground truth position to evaluate the performance of the algorithm.
+I implimented an Extended Kalman filter (EKF) Simulataneous Localization and Mapping (SLAM) algorithm from scratch using several ROS2 packages and a custom C++ library. The algorithm is tested in the Rviz simulation environment and run on the Turtlebot3 robot. The turtlebot3 is equipped with a LIDAR scanner that provdes range and bearing measurements for obstacles in the environment. The EKF SLAM algorithm estimates the robot’s position and the position of the landmarks in the environment using these sensor measurements. The estimated robot positions from SLAM(Green robot) and odometry(Blue robot) are compared to the ground truth position(Red robot) to evaluate the performance of the algorithm.
 
 ### SLAM Algorithm
 
@@ -28,9 +28,13 @@ nuturtle_description: Contains the URDF description and visulization code for th
 
 nusim: Contains the setup for the simulated environment for the turtlebot3. The packages contains launch files for starting the Rviz configuration for a single or multiple turtlebots as well as a launch file for running on an actual turtlebot. The package allows for the creation of stationary walls to mark the boundary of the simulation arena and as well as obstacles for the robot to avoid using markers. A service for teleporting the simulation robot back to its starting point is also provided.
 
-nuturtle_control: The package provides operations responsible to control the turtlebot in real world and simulation. It includes three nodes: Circle, Turtle_control, and Odometry. Circle is responsible to make the robot move in a Circle at a set velocity and radius. Turtle_control is responsible of converting twist messages to wheel commands. The Odometry node is responsible for providing odometry calculations.
+nuturtle_control: The package provides operations responsible to control the turtlebot in real world and simulation. It includes three nodes: Circle, Turtle_control, and Odometry. Circle is responsible to make the robot move in a circle at a set velocity and radius. Turtle_control is responsible of converting twist messages to wheel commands. The Odometry node is responsible for providing odometry calculations.
 
-turtlelib: While not a ROS2 node, turtlelib is a 2D geometry library containing structures for twists, transforms, vectors, and points. Turtlelib provides classes and functions for performing kinematics calculations on the turtlebot.
+turtlelib: Turtlelib is a 2D geometry library containing structures for twists, transforms, vectors, and points. Turtlelib provides classes and functions for performing kinematics calculations on the turtlebot. All functions are tested using the Catch2 unit test framework.
+
+nuslam: The package runs the EKF Slam algorithm for estimating the robot's pose. This package also includes a class to run SLAM with unknown data association by implementing a circle fitting algorithm using the onboard LIDAR. This package also publishes odometry, path, and obstacles for visualization.
+
+### Video demonstrations
 
 {% include video.liquid
   path="assets/images/TurtleDriveBot.mp4"
@@ -44,5 +48,3 @@ turtlelib: While not a ROS2 node, turtlelib is a 2D geometry library containing 
   width="40%"
 %}
 
-## Background
-The system was developed as part of an individual final project for Northwestern University's Mechanical Engineering 495: Sensing, Navigation, and Machine Learning for Robotics.
