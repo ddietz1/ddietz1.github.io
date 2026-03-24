@@ -10,7 +10,7 @@ date: 2025-2-12
 description: "EKF SLAM from scratch"
 ---
 
-https://github.com/user-attachments/assets/1d6d12a1-4064-46ed-a451-870565ec692e
+https://github.com/user-attachments/assets/5e8841dc-4f48-43ad-aa60-d5a007f27146
 
 ## Overview
 
