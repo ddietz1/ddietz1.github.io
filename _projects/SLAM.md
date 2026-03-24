@@ -2,10 +2,6 @@
 layout: project
 title: "Extended Kalman Filter SLAM from scratch"
 
-carousel_images:
-  - /assets/images/slam_preview_small.gif
-carousel_height: 400px
-carousel_width: auto
 preview_gif: "/assets/images/slam_preview_small.gif"
 code: "https://github.com/ME495-Navigation/slam-ddietz1"
 
