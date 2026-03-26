@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Autonomous Underwater Object Retrieval"
-preview_gif: "/assets/images/RingGrab.gif"
+preview_gif: "/assets/images/Winter_Project_Final.gif"
 code: "https://github.com/ddietz1/Retriever_Bot"
 tags: ["ROS 2", "Python", "BlueROV2", "OpenCV", "YOLO", "MAVROS"]
 date: 2025-11-15
@@ -38,19 +38,19 @@ The BlueROV uses a Pixhawk autopilot running on Ardusub and thus cannot be direc
 
 #### BlueROV2
 <div style="text-align:center;">
-  <img src="/assets/images/BlueROV2Image.png" width="400"><br>
+  <img src="/assets/images/BlueROV2Image.png" width="200"><br>
   <em>BlueROV2</em>
 </div>
 
 #### Newton Gripper
 <div style="text-align:center;">
-  <img src="/assets/images/NEWTON-GRIPPER-SPECS.png" width="200"><br>
+  <img src="/assets/images/NEWTON-GRIPPER-SPECS.png" width="100"><br>
   <em>BlueRobotics Newton Gripper</em>
 </div>
 
 #### USB Low Light Camera
 <div style="text-align:center;">
-  <img src="/assets/images/BLUEROV_Camera.png" width="200"><br>
+  <img src="/assets/images/BLUEROV_Camera.png" width="100"><br>
   <em>BlueRobotics LowLight USB Camera and Tilt System</em>
 </div>
 

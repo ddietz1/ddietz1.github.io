@@ -5,7 +5,7 @@ title: "Extended Kalman Filter SLAM from scratch"
 preview_gif: "/assets/images/slam_preview_small.gif"
 code: "https://github.com/ME495-Navigation/slam-ddietz1"
 
-tags: ["ROS 2", "C++", "SLAM", "Turtlebot3"]
+tags: ["ROS 2", "C++", "SLAM", "Turtlebot3", "Unit Testing"]
 date: 2026-1-12
 description: "EKF SLAM from scratch"
 ---
@@ -40,8 +40,8 @@ turtlelib: Turtlelib is a 2D geometry library containing structures for twists, 
 
 nuslam: The package runs the EKF Slam algorithm for estimating the robot's pose. This package also includes a class to run SLAM with unknown data association by implementing a circle fitting algorithm using the onboard LIDAR. This package also publishes odometry, path, and obstacles for visualization.
 
-### Video demonstrations
-
+## Video demonstrations
+### Physical Driving
 {% include video.liquid
   path="assets/images/TurtleDriveBot.mp4"
   title="Robot demonstration"
