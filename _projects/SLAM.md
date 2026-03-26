@@ -2,7 +2,7 @@
 layout: project
 title: "Extended Kalman Filter SLAM from scratch"
 
-preview_gif: "/assets/images/slam_preview_small.gif"
+preview_gif: "/assets/images/SLAM_Final.gif"
 code: "https://github.com/ME495-Navigation/slam-ddietz1"
 
 tags: ["ROS 2", "C++", "SLAM", "Turtlebot3", "Unit Testing"]
