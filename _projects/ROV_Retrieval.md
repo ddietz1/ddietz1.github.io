@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Autonomous Underwater Object Retrieval"
-preview_gif: "/assets/images/Winter_Project_Final.gif"
+preview_gif: "/assets/images/_Project_Final.gif"
 code: "https://github.com/ddietz1/Retriever_Bot"
 tags: ["ROS 2", "Python", "BlueROV2", "OpenCV", "YOLO", "MAVROS"]
 date: 2025-11-15
