@@ -26,7 +26,6 @@ nav a,
 .nav-link {
   text-decoration: none !important;
   text-decoration-line: none !important;
-  /* --- ESSENTIAL FIX: REMOVES ANY ACCIDENTAL BORDER/SHADOW --- */
   border-bottom: none !important;
   box-shadow: none !important;
 }
@@ -64,6 +63,8 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
+  /* FIX: prevent horizontal overflow on mobile */
+  overflow-x: hidden;
 }
 
 /* ============================================
@@ -125,25 +126,21 @@ a:visited {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-gray-border);
   z-index: 1000;
-  /* --- ADJUSTED: REDUCED VERTICAL PADDING TO SHRINK HEADER HEIGHT --- */
-  padding: 0.9rem 0; 
+  padding: 0.9rem 0;
 }
 
 .nav-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
-  /* --- ESSENTIAL FLEXBOX FOR MAIN LAYOUT --- */
   display: flex;
-  justify-content: space-between; /* Pushes name/subtitle left and links/icons right */
-  align-items: center; /* Vertically centers the two main groups */
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Styles for the combined logo/name/subtitle group */
 .nav-logo a {
-  /* --- ESSENTIAL FLEXBOX FOR NAME/SUBTITLE ALIGNMENT --- */
   display: flex;
-  align-items: center; /* Aligns items vertically */
+  align-items: center;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -152,17 +149,24 @@ a:visited {
 }
 
 .nav-logo .nav-name {
-    /* Ensures the name is bold and primary */
-    font-weight: 700;
-    font-size: 1.5em; /* Make the name slightly larger than the container font-size */
+  font-weight: 700;
+  font-size: 1.5em;
 }
 
-/* New element for grouping the Resume link and icons */
+.nav-logo .nav-subtitle {
+  font-family: var(--font-nav);
+  color: var(--color-gray-dark);
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-left: 1px solid var(--color-gray-border);
+  padding-left: 0.75rem;
+  margin-left: 0.75rem;
+}
+
 .nav-links-and-icons {
-    /* --- ESSENTIAL FLEXBOX FOR LINK AND ICON ROW ALIGNMENT --- */
-    display: flex;
-    align-items: center; /* Vertically centers the text link with the icons */
-    gap: 20px; /* Space between the 'Resume' link and the icons */
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-links {
@@ -185,52 +189,45 @@ a:visited {
   text-decoration: none !important;
 }
 
-/* --- ISOLATED NAV BAR ICON STYLES --- */
 .nav-contact-icons {
-    /* Simple row for icons without any extra padding or borders */
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Tight spacing between icons */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav-icon-link {
-    /* Icon wrapper styles, inherited from the old look but with new class name */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: all var(--transition-speed);
-    background-color: var(--color-gray-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all var(--transition-speed);
+  background-color: var(--color-gray-light);
 }
 
 .nav-icon-link:hover {
-    background-color: var(--color-black);
-    transform: translateY(-2px);
-    opacity: 1;
+  background-color: var(--color-black);
+  transform: translateY(-2px);
+  opacity: 1;
 }
 
 .nav-icon-link .nav-icon {
-    /* SVG icon styles */
-    width: 20px;
-    height: 20px;
-    color: var(--color-black);
+  width: 20px;
+  height: 20px;
+  color: var(--color-black);
 }
 
 .nav-icon-link:hover .nav-icon {
-    color: var(--color-white);
+  color: var(--color-white);
 }
-/* ----------------------------------- */
 
 /* ============================================
     MAIN CONTENT
     ============================================ */
 
-/* NOTE: Since the header height changed, the margin-top here might also need adjustment. 
-   I've left it at 80px for now, assuming the original site-nav padding resulted in a total height close to 80px. */
 .main-content {
-  margin-top: 80px; /* Account for fixed nav */
+  margin-top: 80px;
   min-height: calc(100vh - 80px);
 }
 
@@ -253,7 +250,7 @@ a:visited {
     ============================================ */
 
 .projects-section {
-  padding: 0.5rem 0 var(--spacing-xl) 0; 
+  padding: 0.5rem 0 var(--spacing-xl) 0;
 }
 
 .projects-grid {
@@ -413,7 +410,6 @@ a:visited {
   margin-bottom: 2.5rem;
 }
 
-/* Contact info integrated into about (Original, untouched general styles) */
 .contact-info {
   display: flex;
   align-items: center;
@@ -458,6 +454,9 @@ a:visited {
   background-color: var(--color-gray-light);
   border-radius: 999px;
   transition: all var(--transition-speed);
+  /* FIX: prevent email from overflowing its container */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .email-contact:hover {
@@ -468,6 +467,11 @@ a:visited {
   font-size: 0.95rem;
   color: var(--color-gray-dark);
   font-weight: 400;
+  /* FIX: allow long email addresses to wrap/truncate */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .copy-icon-btn {
@@ -476,6 +480,7 @@ a:visited {
   justify-content: center;
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -518,8 +523,8 @@ a:visited {
 }
 
 .project-container {
-  max-width: 1400px; /* Much wider - uses almost full screen on large displays */
-  width: 95%; /* 95% of viewport width */
+  max-width: 1400px;
+  width: 95%;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -547,7 +552,7 @@ a:visited {
 .project-content {
   font-size: 1.05rem;
   line-height: 1.8;
-  max-width: 100%; /* Use full container width */
+  max-width: 100%;
 }
 
 .project-content h2 {
@@ -578,7 +583,6 @@ a:visited {
   display: block;
 }
 
-
 .project-figure figcaption {
   font-size: 0.9rem;
   color: #666;
@@ -586,9 +590,6 @@ a:visited {
   font-style: italic;
 }
 
-
-
-/* Images take full width of container */
 .project-content img {
   max-width: 100%;
   width: 100%;
@@ -599,7 +600,6 @@ a:visited {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Videos take full width */
 .project-content video {
   max-width: 100%;
   width: 100%;
@@ -608,23 +608,6 @@ a:visited {
   margin: 2rem 0;
   border: 1px solid var(--color-gray-border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.project-figure {
-  text-align: center;
-  margin: 30px auto;
-}
-
-.project-figure img {
-  max-width: 600px;
-  border-radius: 8px;
-}
-
-.project-figure figcaption {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 8px;
-  font-style: italic;
 }
 
 /* Carousel Styles */
@@ -678,7 +661,6 @@ a:visited {
   margin: 0;
 }
 
-/* Navigation Arrows */
 .carousel-nav {
   position: absolute;
   top: 50%;
@@ -715,7 +697,6 @@ a:visited {
   height: 24px;
 }
 
-/* Navigation Dots */
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -745,8 +726,6 @@ a:visited {
   height: 14px;
 }
 
-
-/* Side-by-side images - responsive grid */
 .side-by-side {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -762,7 +741,6 @@ a:visited {
   object-fit: cover;
 }
 
-/* Code blocks take full width */
 .project-content pre {
   max-width: 100%;
   overflow-x: auto;
@@ -777,7 +755,6 @@ a:visited {
   font-size: 0.9em;
 }
 
-/* Tables are responsive and full-width */
 .project-content table {
   width: 100%;
   border-collapse: collapse;
@@ -807,12 +784,9 @@ a:visited {
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 0.75rem;
-
-  border: 1px solid var(--color-gray-medium); 
-
-  border-bottom: 1px solid var(--color-gray-medium) !important; 
+  border: 1px solid var(--color-gray-medium);
+  border-bottom: 1px solid var(--color-gray-medium) !important;
   box-shadow: none !important;
-
   font-weight: 400;
   transition: all var(--transition-speed);
 }
@@ -828,7 +802,7 @@ a:visited {
     ============================================ */
 
 .page {
-  padding: 0; /* No padding for full-width pages */
+  padding: 0;
 }
 
 .page-container {
@@ -850,10 +824,9 @@ a:visited {
 }
 
 .page-content {
-  margin-top: 0; /* Remove top margin for full-width content */
+  margin-top: 0;
 }
 
-/* PDF Embed */
 .pdf-embed {
   width: 100%;
   height: 85vh;
@@ -887,20 +860,6 @@ a:visited {
 /* ============================================
     RESPONSIVE DESIGN
     ============================================ */
-.nav-logo .nav-subtitle {
-  font-family: var(--font-nav);
-
-  color: var(--color-gray-dark);
-
-  font-size: 1.2rem;
-
-  font-weight: 500;
-
-  border-left: 1px solid var(--color-gray-border);
-
-  padding-left: 0.75rem;
-  margin-left: 0.75rem;
-}
 
 /* Large Desktop (ultra-wide) */
 @media (min-width: 1600px) {
@@ -926,7 +885,6 @@ a:visited {
     gap: 2rem;
   }
 
-  /* About section tablet */
   .about-content {
     grid-template-columns: 180px 1fr;
     gap: 2.5rem;
@@ -938,12 +896,10 @@ a:visited {
     height: 180px;
   }
 
-  /* Original contact info is for the about section */
   .contact-info {
     gap: 1.25rem;
   }
 
-  /* Project page tablet optimization */
   .project-container {
     max-width: 100%;
     width: 92%;
@@ -966,27 +922,18 @@ a:visited {
     font-size: 1.25rem;
   }
 
-  /* Side by side adapts to smaller minmax
-  .side-by-side {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  } */
-
   .side-by-side {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
     width: 50%;
   }
 
-  /* Tables scroll on tablet */
   .project-content table {
     font-size: 0.95rem;
   }
 
-
-  /* Carousel tablet adjustments */
   .carousel-inner {
     height: 500px;
   }
@@ -1003,8 +950,8 @@ a:visited {
   .carousel-next {
     right: 15px;
   }
-
 }
+
 /* Mobile (1 column) */
 @media (max-width: 768px) {
   :root {
@@ -1016,16 +963,19 @@ a:visited {
     font-size: 16px;
   }
 
+  /* FIX: nav-subtitle hides at mobile to prevent crowding */
+  .nav-logo .nav-subtitle {
+    display: none;
+  }
+
   .nav-container {
-    /* Reset main nav container to allow stacking on mobile if needed */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 16px;
   }
 
   .nav-logo a {
-    /* Keep name and subtitle aligned horizontally */
     display: flex;
     align-items: center;
     font-size: 1.1rem;
@@ -1038,32 +988,26 @@ a:visited {
     color: var(--color-black);
   }
 
-  .nav-logo .nav-subtitle {
-    font-size: 0.9rem; /* Smaller subtitle on mobile */
-  }
-
-  /* --- ISOLATED NAV BAR ICON STYLES MOBILE --- */
   .nav-links-and-icons {
     display: flex;
     align-items: center;
-    gap: 10px; /* Reduced gap for mobile */
+    gap: 10px;
   }
 
   .nav-contact-icons {
     display: flex;
-    gap: 8px; /* Tighter gap for mobile icons */
+    gap: 8px;
   }
-  
+
   .nav-icon-link {
-    width: 32px; /* Smaller touch target size for mobile */
+    width: 32px;
     height: 32px;
   }
 
   .nav-icon-link .nav-icon {
-    width: 16px; /* Smaller SVG size for mobile */
+    width: 16px;
     height: 16px;
   }
-  /* ------------------------------------------- */
 
   .nav-links {
     gap: 1rem;
@@ -1113,12 +1057,14 @@ a:visited {
     padding-top: 2rem;
   }
 
+  /* FIX: email contact wraps gracefully on small screens */
   .email-contact {
-    padding: 0.6rem 1.1rem;
+    padding: 0.6rem 1rem;
+    max-width: 100%;
   }
 
   .email-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   h1 {
@@ -1129,28 +1075,16 @@ a:visited {
     font-size: 1.75rem;
   }
 
-  .project-title {
-    font-size: 2rem;
+  /* FIX: project-page width reset — was stuck at 70% on mobile */
+  .project-page {
+    padding: 2rem 0;
+    width: 100%;
   }
 
-  .side-by-side {
-    grid-template-columns: 1fr;
-  }
-
-  .project-container,
-  .page-container {
-    padding: 0 1rem;
-  }
-
-  /* Project page mobile optimization */
   .project-container {
     width: 100%;
     max-width: 100%;
     padding: 0 1rem;
-  }
-
-  .project-page {
-    padding: 2rem 0;
   }
 
   .project-header {
@@ -1163,9 +1097,10 @@ a:visited {
     line-height: 1.3;
   }
 
+  /* FIX: was font-size: 0.5rem; line-height: 0.5 — nearly invisible */
   .project-overview {
-    font-size: 0.5rem;
-    line-height: 0.5;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .project-content {
@@ -1183,20 +1118,18 @@ a:visited {
     margin-top: 1.5rem;
   }
 
-  /* Images and videos optimized for mobile */
   .project-content img,
   .project-content video {
     margin: 1.5rem 0;
     border-radius: 4px;
   }
 
-  /* Side by side becomes single column */
   .side-by-side {
     grid-template-columns: 1fr;
     gap: 1rem;
+    width: 100%;
   }
 
-  /* Code blocks scroll horizontally */
   .project-content pre {
     display: block;
     overflow-x: auto;
@@ -1206,7 +1139,6 @@ a:visited {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Tables become scrollable */
   .project-content table {
     display: block;
     overflow-x: auto;
@@ -1220,7 +1152,6 @@ a:visited {
     padding: 0.5rem 0.75rem;
   }
 
-  /* Footer spacing */
   .project-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -1231,7 +1162,6 @@ a:visited {
     font-size: 0.95rem;
   }
 
-    /* Carousel mobile adjustments */
   .carousel-inner {
     height: 400px;
   }
@@ -1279,7 +1209,6 @@ a:visited {
     height: 300px;
   }
 
-  /* Project page small mobile */
   .project-container {
     padding: 0 0.75rem;
   }
@@ -1322,8 +1251,6 @@ a:visited {
     text-align: center;
   }
 
-
-    /* Carousel small mobile adjustments */
   .carousel-inner {
     height: 300px;
   }
