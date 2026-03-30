@@ -16,8 +16,6 @@ description: "Autonomous navigation, sensing, and retrieval of underwater object
   </iframe>
 </div>
 
-### --- This project is currently in progress ---
-
 A ROS 2 autonomy stack for the BlueROV2 platform enabling autonomous detection, navigation, and grasping of underwater objects using Python. The package contains a custom ROS -> MAVLink bridge enabling full 6-dof control of the ROV via ROS 2 Kilted. Object detection is achieved through OpenCV or YOLO depending on the object being captured and utilizes PID control for thruster commands and failure recovery logic.
 
 <h2 class="mt-2 mb-3">System Architecture</h2>
