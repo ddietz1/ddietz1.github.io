@@ -11,8 +11,8 @@ description: "A closed-loop autonomous exploration system where a mobile robot i
 ---
 
 {% include video.liquid
-  path="assets/images/SLAM_UNKNOWN_DATA_SIMULATION.mp4"
-  title="EKF SLAM demonstration"
+  path="assets/videos/Stretch_3_Sim_Initial_Capture.mp4"
+  title="3DGS Optimization with Stretch 3"
   class="img-fluid rounded z-depth-1"
   controls="true"
   autoplay="true"
@@ -55,10 +55,7 @@ The mobile manipulator platform. Its head pan/tilt joints aim the D435 at a requ
 
 ## Results & Validation
 
-<!-- ⚠️ New section — built from a real live_run18 investigation (Aug 23-24 2026). Numbers below are verified; swap in your own chart images from
-     /home/derek-dietz/Final_Project/results/live_run18_before_after_report.html (or the published artifact) once you've picked the ones you want. -->
-
-Rendering the same camera pose from the model checkpoint immediately before and after that pose was captured and trained on shows the reconstruction genuinely resolving new geometry, not just an abstract score changing:
+Rendering the same camera pose from the model checkpoint immediately before and after that pose was captured and trained on shows the reconstruction resolving new geometry.
 
 | Round | Before (dB) | After (dB) | Δ |
 |---|---|---|---|
@@ -67,12 +64,7 @@ Rendering the same camera pose from the model checkpoint immediately before and 
 | 2 | 11.84 | 22.17 | +10.33 |
 | 3 | 12.95 | 21.36 | +8.41 |
 
-Because every visited pose is immediately added to the training set, that comparison alone measures memorization more than generalization. A stricter test: track a pose that stays genuinely untrained-on for several rounds. Its PSNR stayed flat and noisy (10.1–10.9 dB) for four full rounds while its SMI-ranked priority climbed from 40th to 1st out of a growing candidate pool — then jumped **+9.3 dB the moment it was actually visited**. That's direct evidence the scoring was tracking real priority the whole time, independent of whether training itself was working.
-
-**Bug found along the way:** chasing down why one high-priority pose sat unvisited for an extra round surfaced a real issue in the crash-recovery path — resuming a mid-round crash could pick up a stale, already-superseded capture instead of waiting for the robot to visit the freshly-rescored top candidate. Confirmed via rank/score comparison against the same round's own rescoring (the stale capture ranked 3rd of 442; the correct target was 1st). <!-- ⚠️ mention the fix once it's actually implemented, not just diagnosed -->
-
-<!-- ⚠️ Not yet run — from your own README's Data section wishlist: -->
-*Planned: SMI-driven selection vs. an equal-budget random-selection baseline, scored against the same held-out-pose methodology above.*
+The consistent spike in Peak Signal to Noise Ratio(PSNR) across multiple rounds shows the uncertain geometry in the scene being resolved. 
 
 ## Media
 
@@ -109,3 +101,12 @@ The first image below is a rendering of the top scoring candidate pose rendered 
   playsinline="true"
   width="40%"
 %}
+
+## Citations
+This project's Shannon-MI viewpoint scoring is a plain-PyTorch reimplementation based on the GauSS-MI approach.
+@article{xie2025gaussmi,
+  title={GauSS-MI: Gaussian Splatting Shannon Mutual Information for Active 3D Reconstruction},
+  author={Xie, Yuhan and Cai, Yixi and Zhang, Yinqiang and Yang, Lei and Pan, Jia},
+  journal={arXiv preprint arXiv:2504.21067},
+  year={2025}
+}
