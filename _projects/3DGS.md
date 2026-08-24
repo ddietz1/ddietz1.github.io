@@ -74,20 +74,20 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 
 <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
   <div style="text-align:center;">
-    <img src="/assets/images/render_before_12.png" width="200"><br>
+    <img src="/assets/round_pose_compare/round0_before.png" width="200"><br>
     <em>Rendered pose - initial model</em>
   </div>
   <div style="text-align:center;">
-    <img src="/assets/images/render_after_12.png" width="200"><br>
+    <img src="/assets/round_pose_compare/round0_after.png" width="200"><br>
     <em>Rendered pose - updated model</em>
   </div>
   <div style="text-align:center;">
-    <img src="/assets/images/real_capture_12.png" width="200"><br>
+    <img src="/assets/round_pose_compare/round0_groundtruth.png" width="200"><br>
     <em>Actual RGB image</em>
   </div>
 </div>
 
-<div style="text-align:center;">
+<!-- <div style="text-align:center;">
   <img src="/assets/round_pose_compare/round0_before.png" width="200"><br>
   <em>Rendered pose - initial model</em>
 </div>
@@ -100,7 +100,7 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 <div style="text-align:center;">
   <img src="/assets/round_pose_compare/round0_groundtruth.png" width="200"><br>
   <em>Actual RGB image</em>
-</div>
+</div> -->
 
 ## Video demonstrations
 
