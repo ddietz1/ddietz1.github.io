@@ -78,20 +78,20 @@ Because every visited pose is immediately added to the training set, that compar
 
 ### 3DGS Renderings
 
-The first image below is a rendering of the top scoring candidate pose rendered from the initial model.<!-- ⚠️ "trained over 30 thousand steps" removed — confirm actual iteration count for whichever run these three images are from before restoring a specific number --> The second image was rendered from the next model checkpoint, after an image at that pose was captured by the robot and the model trained with that image added to the dataset.<!-- ⚠️ "for an additional 3 thousand steps" removed for the same reason --> The third image is the actual RGB photo captured by the onboard D435i camera.
+The first image below is a rendering of the top scoring candidate pose rendered from the initial model. The second image was rendered from the next model checkpoint, after an image at that pose was captured by the robot and the model trained with that image added to the dataset. The third image is the actual RGB photo captured by the onboard D435i camera. Plainly the additional capture was able to resolve much of the uncertainty that the initial model failed to do.
 
 <div style="text-align:center;">
-  <img src="/assets/images/render_before_12.png" width="200"><br>
+  <img src="/assets/round_pose_compare/round0_before.png" width="200"><br>
   <em>Rendered pose - initial model</em>
 </div>
 
 <div style="text-align:center;">
-  <img src="/assets/images/render_after_12.png" width="200"><br>
+  <img src="/assets/round_pose_compare/round0_after.png" width="200"><br>
   <em>Rendered pose - updated model</em>
 </div>
 
 <div style="text-align:center;">
-  <img src="/assets/images/real_capture_12.png" width="200"><br>
+  <img src="/assets/round_pose_compare/round0_groundtruth.png" width="200"><br>
   <em>Actual RGB image</em>
 </div>
 
