@@ -10,7 +10,7 @@ date: 2026-6-1
 description: "A closed-loop autonomous exploration system where a mobile robot iteratively selects, navigates to, and captures its own next-best viewpoints, continuously improving a live 3D Gaussian Splatting reconstruction of its environment without any human guidance."
 ---
 
-<div style="max-width: 20%; margin: 0 auto;">
+<div style="max-width: 50%; margin: 0 auto;">
 {% include video.liquid
   path="assets/videos/Stretch_3_Sim_Initial_Capture.mp4"
   title="3DGS Optimization with Stretch 3"
@@ -84,6 +84,7 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 ## Video demonstrations
 
 ### Top Scoring Pose After Model Retraining
+<div style="max-width: 50%; margin: 0 auto;">
 {% include video.liquid
   path="assets/videos/captured_pose_video_rotated/bad_pose_vs_real.mp4"
   title="The top scoring pose being rendered as the model updates"
@@ -93,10 +94,11 @@ The first image below is a rendering of the top scoring candidate pose rendered 
   loop="true"
   muted="true"
   playsinline="true"
-  width="40%"
 %}
+</div>
 
 ### Initial versus Optimized Model
+<div style="max-width: 50%; margin: 0 auto;">
 {% include video.liquid
   path="assets/videos/flythrough/rotated/side_by_side.mp4"
   title="A flythrough showing the intially created model side by side with the optimized model"
@@ -106,8 +108,8 @@ The first image below is a rendering of the top scoring candidate pose rendered 
   loop="true"
   muted="true"
   playsinline="true"
-  width="40%"
 %}
+</div>
 
 ## Citations
 This project's Shannon-MI viewpoint scoring is a plain-PyTorch reimplementation based on the GauSS-MI approach.
