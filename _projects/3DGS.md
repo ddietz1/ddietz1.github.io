@@ -43,7 +43,7 @@ The onboard RGB-D camera mounted on the Stretch 3's head, providing the color im
 The mobile manipulator platform. Its head pan/tilt joints aim the D435 at a requested 6-DOF pose, and its mobile base (driven via Nav2) carries it to the standoff position for each next-best-view candidate before the head IK takes over for final aiming.
 
 <div style="text-align:center;">
-  <img src="/assets/images/Stretch_3_Image.png" width="200"><br>
+  <img src="/assets/images/Stretch_3_Image.png" width="150"><br>
   <em>Stretch 3</em>
 </div>
 
@@ -86,7 +86,7 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 ### Top Scoring Pose After Model Retraining
 <div style="max-width: 50%; margin: 0 auto;">
 {% include video.liquid
-  path="assets/videos/captured_pose_video_rotated/bad_pose_vs_real.mp4"
+  path="assets/videos/captured_pose_video_rotated/bad_pose_evolve.mp4"
   title="The top scoring pose being rendered as the model updates"
   class="img-fluid rounded z-depth-1"
   controls="true"
