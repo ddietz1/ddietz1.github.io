@@ -49,14 +49,34 @@ The mobile manipulator platform. Its head pan/tilt joints aim the D435 at a requ
 
 ## Results & Validation
 
+To validate that Shannon mutual-information scoring is actually driving the exploration, I ran two identical 11-round pipelines(one that uses the scoring mechanism to determine the next capture pose and another that randomly samples from the candidate poses to determine the next capture pose), holding everything else fixed (same initial images, same holdout poses, same training budget). Two independent metrics tell the same story. First, the model's own top-candidate uncertainty score, which the informed run should be actively paying down, fell 82.7% over 11 rounds under scored selection, but rose 75.8% under random selection, confirming that without targeted selection, the scene's worst-covered regions are never visited. Second, real image quality follows suit: on 3 fixed held-out views never trained on by either run, scored selection held a consistent ~0.3 dB PSNR edge across most rounds (mean 17.90 dB vs. 17.65 dB), and at the newly-captured pose itself, an informed round-0 pick resolved more than twice the reconstruction error of a random one (+10.40 dB vs. +4.52 dB) — a gap that narrows by round 10 (+5.99 dB vs. +5.59 dB) as overall scene coverage saturates for both strategies.
+
+<div style="max-width: 500px; margin: 0 auto; text-align:center;">
+  <img src="assets/images/scored_vs_random/held_out_view_quality.png"><br>
+  <em>PSNR values for scored versus random NBV selection</em>
+</div>
+
+<div style="max-width: 500px; margin: 0 auto; text-align:center;">
+  <img src="assets/images/scored_vs_random/remaining_scene_uncertainty.png"><br>
+  <em>Uncertainty values for scored versus random NBV selection</em>
+</div>
+
 Rendering the same camera pose from the model checkpoint immediately before and after that pose was captured and trained on shows the reconstruction resolving new geometry.
 
 | Round | Before (dB) | After (dB) | Δ |
 |---|---|---|---|
-| 0 | 11.61 | 20.73 | +9.12 |
-| 1 | 12.45 | 20.17 | +7.72 |
-| 2 | 11.84 | 22.17 | +10.33 |
-| 3 | 12.95 | 21.36 | +8.41 |
+| 0 | 12.74 | 23.14 | +10.39 |
+| 1 | 13.28 | 21.33 | +8.04 |
+| 2 | 10.94 | 20.45 | +9.51 |
+| 3 | 15.39 | 19.99 | +4.59 |
+| 4 | 14.66 | 23.91 | +9.25 |
+| 5 | 13.51 | 19.44 | +5.94 |
+| 6 | 15.44 | 19.43 | +3.99 |
+| 7 | 13.65 | 21.92 | +8.28 |
+| 8 | 10.94 | 23.36 | +12.42 |
+| 9 | 15.35 | 18.74 | +3.40 |
+| 10 | 15.30 | 21.29 | +5.99 |
+| **Mean** | **13.75** | **21.18** | **+7.44** |
 
 The consistent spike in Peak Signal to Noise Ratio(PSNR) across multiple rounds shows the uncertain geometry in the scene being resolved. 
 
@@ -84,7 +104,7 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 ## Video demonstrations
 
 ### Top Scoring Pose After Model Retraining
-<div style="max-width: 50%; margin: 0 auto;">
+<div style="max-width: 40%; margin: 0 auto;">
 {% include video.liquid
   path="assets/videos/captured_pose_video_rotated/bad_pose_evolve.mp4"
   title="The top scoring pose being rendered as the model updates"
