@@ -10,6 +10,7 @@ date: 2026-6-1
 description: "A closed-loop autonomous exploration system where a mobile robot iteratively selects, navigates to, and captures its own next-best viewpoints, continuously improving a live 3D Gaussian Splatting reconstruction of its environment without any human guidance."
 ---
 
+<div style="max-width: 20%; margin: 0 auto;">
 {% include video.liquid
   path="assets/videos/Stretch_3_Sim_Initial_Capture.mp4"
   title="3DGS Optimization with Stretch 3"
@@ -19,8 +20,8 @@ description: "A closed-loop autonomous exploration system where a mobile robot i
   loop="true"
   muted="true"
   playsinline="true"
-  width="20%"
 %}
+</div>
 
 ## Overview
 
