@@ -42,7 +42,7 @@ The onboard RGB-D camera mounted on the Stretch 3's head, providing the color im
 ### Hello Robot Stretch 3
 The mobile manipulator platform. Its head pan/tilt joints aim the D435 at a requested 6-DOF pose, and its mobile base (driven via Nav2) carries it to the standoff position for each next-best-view candidate before the head IK takes over for final aiming.
 
-<div style="max-width: 200px; margin: 0 auto; text-align:center;">
+<div style="max-width: 500px; margin: 0 auto; text-align:center;">
   <img src="/assets/images/Stretch_3_Image.png"><br>
   <em>Stretch 3</em>
 </div>
