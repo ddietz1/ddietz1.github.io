@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": "2026-08-27T15:04:09.278049",
+    "max_score": 15352.703125,
+    "n_candidates": 169
+  },
+  {
+    "timestamp": "2026-08-27T15:10:42.715472",
+    "max_score": 15591.4345703125,
+    "n_candidates": 215
+  },
+  {
+    "timestamp": "2026-08-27T15:17:07.232272",
+    "max_score": 15862.349609375,
+    "n_candidates": 276
+  },
+  {
+    "timestamp": "2026-08-27T15:26:36.883489",
+    "max_score": 15862.349609375,
+    "n_candidates": 300
+  },
+  {
+    "timestamp": "2026-08-27T15:33:02.902000",
+    "max_score": 22657.6484375,
+    "n_candidates": 362
+  },
+  {
+    "timestamp": "2026-08-27T15:39:53.657749",
+    "max_score": 23436.58984375,
+    "n_candidates": 413
+  },
+  {
+    "timestamp": "2026-08-27T15:49:38.029130",
+    "max_score": 22760.56640625,
+    "n_candidates": 500
+  },
+  {
+    "timestamp": "2026-08-27T15:55:54.407757",
+    "max_score": 22991.42578125,
+    "n_candidates": 553
+  },
+  {
+    "timestamp": "2026-08-27T16:01:40.285377",
+    "max_score": 22977.77734375,
+    "n_candidates": 595
+  },
+  {
+    "timestamp": "2026-08-27T16:07:57.011306",
+    "max_score": 22847.2109375,
+    "n_candidates": 650
+  },
+  {
+    "timestamp": "2026-08-27T16:19:00.991880",
+    "max_score": 22255.75,
+    "n_candidates": 729
+  },
+  {
+    "timestamp": "2026-08-27T16:25:34.521266",
+    "max_score": 26991.8828125,
+    "n_candidates": 784
+  }
+]
