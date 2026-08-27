@@ -66,7 +66,7 @@ Rendering the same camera pose from the model checkpoint immediately before and 
 **Scored selection:**
 
 | Round | Before (dB) | After (dB) | Δ |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | 0 | 12.74 | 23.14 | +10.39 |
 | 1 | 13.28 | 21.33 | +8.04 |
 | 2 | 10.94 | 20.45 | +9.51 |
@@ -83,7 +83,7 @@ Rendering the same camera pose from the model checkpoint immediately before and 
 **Random baseline:**
 
 | Round | Before (dB) | After (dB) | Δ |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | 0 | 12.94 | 17.46 | +4.53 |
 | 1 | 12.60 | 17.85 | +5.25 |
 | 2 | 14.40 | 17.70 | +3.30 |
