@@ -82,10 +82,10 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 
 ## Video demonstrations
 
-### Physical Driving
+### Top Scoring Pose After Model Retraining
 {% include video.liquid
-  path="assets/images/TurtleDriveBot.mp4"
-  title="Robot demonstration"
+  path="assets/videos/captured_pose_video_rotated/bad_pose_evolve.mp4"
+  title="The top scoring pose being rendered as the model updates"
   class="img-fluid rounded z-depth-1"
   controls="true"
   autoplay="true"
