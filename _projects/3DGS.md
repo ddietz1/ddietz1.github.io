@@ -52,16 +52,18 @@ The mobile manipulator platform. Its head pan/tilt joints aim the D435 at a requ
 To validate that Shannon mutual-information scoring is actually driving the exploration, I ran two identical 11-round pipelines(one that uses the scoring mechanism to determine the next capture pose and another that randomly samples from the candidate poses to determine the next capture pose), holding everything else fixed (same initial images, same holdout poses, same training budget). Two independent metrics tell the same story. First, the model's own top-candidate uncertainty score, which the informed run should be actively paying down, fell 82.7% over 11 rounds under scored selection, but rose 75.8% under random selection, confirming that without targeted selection, the scene's worst-covered regions are never visited. Second, real image quality follows suit: on 3 fixed held-out views never trained on by either run, scored selection held a consistent ~0.3 dB PSNR edge across most rounds (mean 17.90 dB vs. 17.65 dB), and at the newly-captured pose itself, an informed round-0 pick resolved more than twice the reconstruction error of a random one (+10.40 dB vs. +4.52 dB) — a gap that narrows by round 10 (+5.99 dB vs. +5.59 dB) as overall scene coverage saturates for both strategies.
 
 <div style="max-width: 500px; margin: 0 auto; text-align:center;">
-  <img src="assets/images/scored_vs_random/held_out_view_quality.png"><br>
+  <img src="/assets/images/scored_vs_random/held_out_view_quality.png"><br>
   <em>PSNR values for scored versus random NBV selection</em>
 </div>
 
 <div style="max-width: 500px; margin: 0 auto; text-align:center;">
-  <img src="assets/images/scored_vs_random/remaining_scene_uncertainty.png"><br>
+  <img src="/assets/images/scored_vs_random/remaining_scene_uncertainty.png"><br>
   <em>Uncertainty values for scored versus random NBV selection</em>
 </div>
 
 Rendering the same camera pose from the model checkpoint immediately before and after that pose was captured and trained on shows the reconstruction resolving new geometry.
+
+**Scored selection:**
 
 | Round | Before (dB) | After (dB) | Δ |
 |---|---|---|---|
@@ -77,6 +79,23 @@ Rendering the same camera pose from the model checkpoint immediately before and 
 | 9 | 15.35 | 18.74 | +3.40 |
 | 10 | 15.30 | 21.29 | +5.99 |
 | **Mean** | **13.75** | **21.18** | **+7.44** |
+
+**Random baseline:**
+
+| Round | Before (dB) | After (dB) | Δ |
+|---|---|---|---|
+| 0 | 12.94 | 17.46 | +4.53 |
+| 1 | 12.60 | 17.85 | +5.25 |
+| 2 | 14.40 | 17.70 | +3.30 |
+| 3 | 13.05 | 19.21 | +6.16 |
+| 4 | 14.61 | 23.02 | +8.41 |
+| 5 | 16.79 | 19.17 | +2.38 |
+| 6 | 14.65 | 18.81 | +4.17 |
+| 7 | 14.76 | 16.97 | +2.21 |
+| 8 | 14.51 | 20.65 | +6.14 |
+| 9 | 13.17 | 21.07 | +7.89 |
+| 10 | 13.78 | 19.37 | +5.59 |
+| **Mean** | **14.11** | **19.21** | **+5.09** |
 
 The consistent spike in Peak Signal to Noise Ratio(PSNR) across multiple rounds shows the uncertain geometry in the scene being resolved. 
 
