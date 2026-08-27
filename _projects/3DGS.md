@@ -84,8 +84,21 @@ The first image below is a rendering of the top scoring candidate pose rendered 
 
 ### Top Scoring Pose After Model Retraining
 {% include video.liquid
-  path="assets/videos/captured_pose_video_rotated/bad_pose_evolve.mp4"
+  path="assets/videos/captured_pose_video_rotated/bad_pose_vs_real.mp4"
   title="The top scoring pose being rendered as the model updates"
+  class="img-fluid rounded z-depth-1"
+  controls="true"
+  autoplay="true"
+  loop="true"
+  muted="true"
+  playsinline="true"
+  width="40%"
+%}
+
+### Initial versus Optimized Model
+{% include video.liquid
+  path="assets/videos/flythrough/rotated/side_by_side.mp4"
+  title="A flythrough showing the intially created model side by side with the optimized model"
   class="img-fluid rounded z-depth-1"
   controls="true"
   autoplay="true"
