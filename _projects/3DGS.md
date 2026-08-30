@@ -2,7 +2,7 @@
 layout: project
 title: "Next-Best-View 3D Gaussian Splatting with an Autonomous Mobile Robot"
 
-preview_gif: "/assets/images/SLAM_Final.gif"
+preview_gif: "assets/videos/3DGS_Demo.gif"
 code: "https://github.com/ddietz1/3DGS-Optimization-with-Stretch-3"
 
 tags: ["ROS 2", "Python", "3DGS", "Hello Robot", "PyTorch", "NAV2"]
@@ -12,7 +12,7 @@ description: "A closed-loop autonomous exploration system where a mobile robot i
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 1rem;">
   <iframe 
-    src="https://youtu.be/embed/giVTByQmJT4"
+    src="https://www.youtube.com/embed/giVTByQmJT4"
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
     frameborder="0" allowfullscreen>
   </iframe>
