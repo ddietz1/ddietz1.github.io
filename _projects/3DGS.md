@@ -12,7 +12,7 @@ description: "A closed-loop autonomous exploration system where a mobile robot i
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 1rem;">
   <iframe 
-    src="https://youtu.be/giVTByQmJT4"
+    src="https://youtu.be/embed/giVTByQmJT4"
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
     frameborder="0" allowfullscreen>
   </iframe>
